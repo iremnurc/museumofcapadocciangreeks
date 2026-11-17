@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Brand tokens: see docs/brand.md and docs/design/site-design.md */
+@theme {
+  --color-madder: #8e2a22;
+  --color-parchment: #f1e8d8;
+  --color-paper: #f8f3ea;
+  --color-ink: #1a1612;
+  --color-gold: #b8893f;
+  --color-stone: #6a6258;
+  --color-knot: #d6503f;
+  --color-terracotta: #e2a498;
+  --color-blush: #f0c9be;
+  --color-body: #3e372f;
+  --color-rule: #cdbda3;
+  --color-rule-dark: #3a342d;
+  --color-rule-madder: #b0574d;
+  --color-mist: #b5ada2;
+  --color-ash: #a39e94;
+  --color-sand: #d9d2c6;
+  --color-clay: #eadcc6;
+
+  --font-serif: var(--font-garamond), "EB Garamond", Georgia, serif;
+  --font-sans: var(--font-commissioner), "Commissioner", system-ui, sans-serif;
+
+  --animate-marquee: marquee 70s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  html { background: var(--color-parchment); }
+  body { @apply bg-parchment text-ink font-sans antialiased; }
+  a { @apply text-ink no-underline; }
+  a:hover { color: var(--color-madder); }
+  :focus-visible { outline: 2px solid var(--color-knot); outline-offset: 3px; }
+}
+
+@layer components {
+  .gutter { padding-inline: clamp(16px, 3vw, 40px); }
+  .gutter-wide { padding-inline: clamp(16px, 4vw, 64px); }
+  .label { @apply text-xs uppercase tracking-[0.2em] text-madder; }
+  .h1 { @apply font-serif font-normal tracking-[-0.02em]; font-size: clamp(64px, 11vw, 168px); line-height: 0.88; }
+  .h2 { @apply font-serif font-normal text-[40px] sm:text-[56px] leading-[1.03]; }
+  .statement { @apply font-serif font-normal text-parchment; font-size: clamp(36px, 4.8vw, 68px); line-height: 1.08; }
+  .body-serif { @apply font-serif text-[20px] leading-[1.5] text-body; }
+  .pill { @apply inline-flex items-center rounded-full bg-madder px-6 py-[13px] text-sm font-medium text-paper whitespace-nowrap; }
+  .pill:hover { @apply bg-ink text-paper; }
+  .text-link { @apply font-serif italic text-[18px] border-b border-ink pt-2 pb-0.5; }
+  .arch { border-radius: 999px 999px 0 0; overflow: hidden; }
+  .archival { filter: grayscale(1) contrast(1.12) sepia(0.12); }
+  .indent-editorial { margin-left: clamp(0px, calc((100vw - 640px) * 0.5), 268px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+}

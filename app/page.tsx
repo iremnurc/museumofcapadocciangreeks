@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Accent, OutlinedRow, PatternFeature, VisitCta } from "@/components/blocks";
 import { CollectionsIndex } from "@/components/collections-index";
+import { GradientWaveText } from "@/components/gradient-wave-text";
 import { HomeHero } from "@/components/home-hero";
 import { Mark } from "@/components/mark";
 import { home } from "@/content/home";
@@ -31,7 +32,7 @@ export default function HomePage() {
           <Float img={images.cross} className="top-[14%] left-[2%] aspect-[4/5]" />
           <Float img={images.jug} className="top-[8%] right-[4%] aspect-[3/4] rounded-t-full" />
           <Float img={images.earrings} className="bottom-[7%] left-[46%] aspect-square rounded-full" />
-          <p className="relative m-0 font-serif text-[clamp(34px,4.6vw,64px)] leading-[1.12]">{home.quote}</p>
+          <GradientWaveText className="relative m-0 font-serif text-[clamp(34px,4.6vw,64px)] leading-[1.12] text-ink">{home.quote}</GradientWaveText>
           <Link href="/about" className="text-link relative mt-8 inline-block">
             why we collect
           </Link>

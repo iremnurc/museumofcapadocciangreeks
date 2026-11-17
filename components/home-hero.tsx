@@ -34,7 +34,7 @@ export function HomeHero() {
           ))}
         </div>
         <h1 className="m-0 font-serif font-normal leading-[0.84] tracking-[-0.02em]" style={{ fontSize: "clamp(64px, 13.6vw, 196px)" }}>
-          Cappadocian <span className="whitespace-nowrap italic text-terracotta sm:ml-[1.2em]">Greeks</span>
+          Cappadocian <span className="block italic text-terracotta" style={{ marginLeft: "0.18em" }}>Greeks</span>
         </h1>
         <div
           role="region"

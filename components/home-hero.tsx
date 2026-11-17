@@ -27,7 +27,7 @@ function Figure({ item, n, hidden }: { item: (typeof home.marquee)[number]; n: n
 export function HomeHero() {
   return (
     <section aria-label="Welcome" className="bg-ink text-parchment">
-      <div className="gutter flex flex-col gap-[clamp(40px,5vw,80px)] pt-[clamp(48px,6vw,88px)] pb-[clamp(72px,8vw,128px)]">
+      <div className="gutter flex flex-col gap-[clamp(40px,5vw,80px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(72px,8vw,128px)]">
         <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px] text-mist">
           {home.info.map((i) => (
             <span key={i}>{i}</span>

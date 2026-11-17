@@ -26,7 +26,7 @@ export function PageHero({
 }) {
   return (
     <section aria-label="Introduction" className="bg-ink text-parchment">
-      <div className="gutter flex flex-col gap-[clamp(40px,5vw,72px)] pt-[clamp(48px,6vw,88px)] pb-[clamp(56px,7vw,104px)]">
+      <div className="gutter flex flex-col gap-[clamp(40px,5vw,72px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(56px,7vw,104px)]">
         <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px] text-mist">
           {info.map((i) => (
             <span key={i}>{i}</span>

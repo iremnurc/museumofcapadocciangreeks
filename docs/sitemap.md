@@ -36,27 +36,17 @@ Every page except Contact ends with the same "Visit us" block.
 
 ---
 
-## 2. Site map (designed on the canvas: "Site pages")
+## 2. Site map (final: same five pages as today)
 
-Launch is **English only, at the root**. Greek can be added later under `/el/...`.
-There are **no individual object pages**, because the museum won't provide per-object records. Objects open in a larger view (lightbox) on their collection page.
+The museum won't provide more content, so the new site keeps the **existing five pages and URLs**. There are no new sections, no per-object pages and no event listings.
 
 ```
-/
-├── /                         Home
-├── /visit                    Hours (winter/summer), tickets, getting here, good to know
-├── /collections              Overview of the 4 collections
-│   ├── /collections/costumes-textiles
-│   ├── /collections/jewellery-silver        (designed: filters + lightbox)
-│   ├── /collections/church-treasures
-│   └── /collections/rugs-kilims-ceramics
-├── /events                   Featured festival, upcoming/past list
-├── /history                  Who were the Cappadocian Greeks, timeline, our story (about)
-├── /contact                  Director + academic contact, contact form
-├── /privacy
-└── 404
+/                Home: hero, today's hours, admission, find us, 3 collections, our story + 1997 award, events teaser, visit
+/collections/    3 collections (costumes & jewellery, church treasures, rugs/kilims/ceramics) + object gallery with filters and lightbox
+/events/         The Great Festival at Akontisma + symposiums & book presentations
+/about/          Who were the Cappadocian Greeks, short timeline (1850, 1924, 1987, 1997), our story
+/contact/        Director + academic contact (email, phone), contact form, visit info (hours, admission, map)
 ```
 
-**Main navigation:** Visit · Collections · Events · History · Contact, plus a "Plan your visit" button.
-
-**Redirects:** the five existing URLs keep their paths, except `/about/` → `/history` (301).
+**Main navigation:** Collections · Events · About · Contact, plus a "Visit us" button. The logo links to Home.
+**Redirects:** none needed, because every existing URL is kept.

@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Accent, Blush, EditorialBlock, PageHero, VisitCta } from "@/components/blocks";
+import { QuoteScroll } from "@/components/quote-scroll";
+import type { MediaItem } from "@/components/scaling-media";
 import { images } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
   description: "Who were the Cappadocian Greeks, and how the people of Nea Karvali built the museum: from Gelveri to Nea Karvali.",
 };
+
+const quoteObjects: MediaItem[] = [
+  { img: images.necklace, frame: "arch" },
+  { img: images.pouch, frame: "circle" },
+  { img: images.buckle, frame: "rect" },
+  { img: images.cross, frame: "pill" },
+  { img: images.rugColumns, frame: "arch", pos: "50% 35%" },
+];
 
 const dates = [
   { year: "1850", text: "The community council of Gelveri rules that jewellery may be worn in public only at baptisms and weddings." },
@@ -73,17 +83,9 @@ export default function AboutPage() {
         </div>
       </EditorialBlock>
 
-      <section aria-label="Why we collect" className="relative overflow-hidden border-t border-rule bg-paper">
-        <div className="relative mx-auto max-w-[1100px] px-[clamp(16px,4vw,48px)] py-[clamp(120px,14vw,200px)] text-center">
-          <Float src={images.necklace.src} className="top-[12%] left-[2%] aspect-[4/5] rounded-t-full" />
-          <Float src={images.pouch.src} className="top-[18%] right-[3%] aspect-square rounded-full" />
-          <Float src={images.buckle.src} className="bottom-[6%] left-[44%] aspect-[3/4]" />
-          <p className="relative m-0 font-serif text-[clamp(34px,4.6vw,64px)] leading-[1.12]">
-            “The road ahead is long. Together we continue to <Accent>illuminate the unseen corners</Accent> of this history.”
-          </p>
-          <span className="mt-8 inline-block text-[13px] text-stone">From our story</span>
-        </div>
-      </section>
+      <QuoteScroll id="why-we-collect" label="Why we collect" items={quoteObjects} note="From our story">
+        “The road ahead is long. Together we continue to illuminate the unseen corners of this history.”
+      </QuoteScroll>
 
       <VisitCta
         label="The collections"
@@ -102,10 +104,3 @@ export default function AboutPage() {
   );
 }
 
-function Float({ src, className }: { src: string; className: string }) {
-  return (
-    <div aria-hidden className={`absolute w-[60px] overflow-hidden sm:w-[clamp(90px,10vw,140px)] ${className}`}>
-      <Image src={src} alt="" fill sizes="140px" className="object-cover" />
-    </div>
-  );
-}

@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { Accent, OutlinedRow, PatternFeature, VisitCta } from "@/components/blocks";
 import { CollectionsIndex } from "@/components/collections-index";
-import { GradientWaveText } from "@/components/gradient-wave-text";
 import { HomeHero } from "@/components/home-hero";
-import { ScalingMedia } from "@/components/scaling-media";
+import { QuoteScroll } from "@/components/quote-scroll";
 import { Mark } from "@/components/mark";
 import { home } from "@/content/home";
 import { images, site } from "@/content/site";
@@ -27,19 +26,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ScalingMedia id="purpose" label="Our purpose" items={home.flyingObjects}>
-        <GradientWaveText
-          triggerId="purpose"
-          start="top 70%"
-          end="top -60%"
-          className="m-0 max-w-[1000px] text-center font-serif text-[clamp(32px,4.6vw,64px)] leading-[1.12] text-ink"
-        >
-          {home.quote}
-        </GradientWaveText>
-        <Link href="/about" className="text-link mt-8 inline-block">
-          why we collect
-        </Link>
-      </ScalingMedia>
+      <QuoteScroll id="purpose" label="Our purpose" items={home.flyingObjects} link={{ href: "/about", label: "why we collect" }}>
+        {home.quote}
+      </QuoteScroll>
 
       <CollectionsIndex />
 

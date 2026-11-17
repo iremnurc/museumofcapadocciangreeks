@@ -25,10 +25,10 @@ export function SiteHeader() {
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger
               aria-label="Open menu"
-              className="flex h-[46px] w-[46px] cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full border border-parchment"
+              className="ring-btn group flex h-[46px] w-[46px] cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full border border-parchment bg-transparent hover:bg-parchment"
             >
-              <span className="block h-[1.5px] w-[18px] bg-parchment" />
-              <span className="block h-[1.5px] w-[18px] bg-parchment" />
+              <span className="block h-[1.5px] w-[18px] bg-parchment transition-colors group-hover:bg-ink" />
+              <span className="block h-[1.5px] w-[18px] bg-parchment transition-colors group-hover:bg-ink" />
             </DialogTrigger>
             <DialogContent aria-describedby={undefined} className="gutter flex flex-col pt-[18px] pb-10">
               <DialogTitle className="sr-only">Menu</DialogTitle>
@@ -38,7 +38,7 @@ export function SiteHeader() {
                 </Link>
                 <DialogClose
                   aria-label="Close menu"
-                  className="h-[46px] w-[46px] cursor-pointer rounded-full border border-parchment text-xl text-parchment"
+                  className="ring-btn h-[46px] w-[46px] cursor-pointer rounded-full border border-parchment bg-transparent text-xl text-parchment hover:bg-parchment hover:text-ink"
                 >
                   ×
                 </DialogClose>

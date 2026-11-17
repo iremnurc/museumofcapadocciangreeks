@@ -159,7 +159,7 @@ export function OutlinedRow({
       <span className="flex-[1_1_300px] text-[15px] leading-normal text-body">{text}</span>
     </>
   );
-  const cls = "flex flex-wrap items-center gap-x-10 gap-y-3 border border-rule px-7 py-[26px]";
+  const cls = `flex flex-wrap items-center gap-x-10 gap-y-3 border border-rule px-7 py-[26px] transition-colors duration-300${href ? " hover:border-madder hover:bg-paper" : ""}`;
   return href ? (
     <Link href={href} className={cls}>
       {inner}

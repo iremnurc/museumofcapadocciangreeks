@@ -56,7 +56,7 @@ export function SiteFooter() {
             <a href={`tel:${contact.phone}`} className="py-[3px] text-sand hover:text-parchment">
               {contact.phoneLabel}
             </a>
-            <a href={site.mapUrl} className="py-[3px] text-sand underline hover:text-parchment">
+            <a href={site.mapUrl} className="u-link self-start py-[3px] text-sand hover:text-parchment">
               Directions
             </a>
           </div>
@@ -68,7 +68,7 @@ export function SiteFooter() {
           <span className="flex items-center gap-3.5">
             <Mark className="h-[22px] w-[42px] text-parchment" />© {new Date().getFullYear()} {site.fullName}
           </span>
-          <Link href="/privacy" className="text-ash underline">
+          <Link href="/privacy" className="u-link text-ash hover:text-parchment">
             Privacy
           </Link>
         </div>

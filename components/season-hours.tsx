@@ -8,7 +8,7 @@ export function SeasonHours() {
   const [season, setSeason] = useState<"winter" | "summer">(month >= 4 && month <= 9 ? "summer" : "winter");
   const s = site.hours[season];
   const btn = (on: boolean) =>
-    `cursor-pointer rounded-full border-0 px-[18px] py-[11px] text-sm ${on ? "bg-parchment font-medium text-ink" : "bg-transparent text-parchment"}`;
+    `cursor-pointer rounded-full border-0 px-[18px] py-[11px] text-sm transition-colors ${on ? "bg-parchment font-medium text-ink" : "bg-transparent text-parchment hover:bg-parchment/15"}`;
 
   return (
     <div className="flex flex-col gap-[clamp(48px,6vw,80px)]">

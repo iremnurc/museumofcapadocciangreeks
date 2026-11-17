@@ -75,7 +75,7 @@ export default function HomePage() {
               <span className="text-sm leading-[1.6]">European Museum of the Year Award, shared with the Museum of Anatolian Civilisations, Ankara</span>
             </div>
             <div className="flex min-w-0 flex-[0_1_200px] items-end">
-              <Link href="/about" className="pill bg-parchment! text-ink!">
+              <Link href="/about" className="pill pill-light">
                 Our story
               </Link>
             </div>

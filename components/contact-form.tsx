@@ -21,7 +21,7 @@ export function ContactForm() {
           Thank <span className="italic text-madder">you</span>
         </span>
         <span className="font-serif text-[21px] leading-normal text-body">Your message has been sent. We&apos;ll reply as soon as we can.</span>
-        <button type="button" onClick={() => location.reload()} className="cursor-pointer rounded-full border border-ink bg-transparent px-[22px] py-3 text-sm">
+        <button type="button" onClick={() => location.reload()} className="ring-btn cursor-pointer rounded-full border border-ink bg-transparent px-[22px] py-3 text-sm hover:bg-ink hover:text-paper">
           Send another
         </button>
       </div>

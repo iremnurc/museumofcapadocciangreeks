@@ -41,12 +41,14 @@ Every page except Contact ends with the same "Visit us" block.
 The museum won't provide more content, so the new site keeps the **existing five pages and URLs**. There are no new sections, no per-object pages and no event listings.
 
 ```
-/                Home: hero, today's hours, admission, find us, 3 collections, our story + 1997 award, events teaser, visit
-/collections/    3 collections (costumes & jewellery, church treasures, rugs/kilims/ceramics) + object gallery with filters and lightbox
-/events/         The Great Festival at Akontisma + symposiums & book presentations
-/about/          Who were the Cappadocian Greeks, short timeline (1850, 1924, 1987, 1997), our story
-/contact/        Director + academic contact (email, phone), contact form, visit info (hours, admission, map)
+/                Home: dark typographic hero + object marquee, today strip, quote, collections index, Great Festival, what's on, since 1987, visit CTA
+/collections/    Three collections (costumes & jewellery, church treasures, rugs/kilims/ceramics), visit CTA
+/events/         Programme rows, the Great Festival at Akontisma, symposiums & book presentations, academic contact CTA
+/about/          Who were the Cappadocian Greeks, four dates (1850, 1924, 1987, 1997), our story, quote, collections CTA
+/contact/        Director + academic contact, contact form, visit block (season switch, hours, admission, map link)
 ```
 
-**Main navigation:** Collections · Events · About · Contact, plus a "Visit us" button. The logo links to Home.
+The object gallery was dropped from Collections during design review. The section-by-section spec is in `design/site-design.md`.
+
+**Main navigation:** a dark top bar with the logo (links to Home), a red "Visit us" pill (hidden under 600 px) and a ☰ button that opens a full-screen numbered menu: 01 Collections · 02 Events · 03 About · 04 Contact.
 **Redirects:** none needed, because every existing URL is kept.

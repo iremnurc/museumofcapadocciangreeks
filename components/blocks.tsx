@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { GradientWaveText } from "@/components/gradient-wave-text";
 import { Mark } from "@/components/mark";
 import { PatternField, type Motif } from "@/components/pattern";
 import type { Img } from "@/content/site";
@@ -120,7 +121,6 @@ export function EditorialBlock({
   children: ReactNode;
   headingLevel?: "h2" | "p";
 }) {
-  const H = headingLevel;
   return (
     <section id={id} className="bg-madder text-sand">
       <div className="gutter-wide mx-auto flex max-w-[1360px] flex-col gap-[clamp(64px,8vw,120px)] py-[clamp(112px,13vw,200px)]">
@@ -129,7 +129,14 @@ export function EditorialBlock({
             <span className="text-xs uppercase tracking-[0.2em] text-terracotta">{label}</span>
             <Mark className="h-[22px] w-[42px] text-parchment" knot="#1A1612" />
           </div>
-          <H className="statement m-0 min-w-0 max-w-[980px] flex-[1_1_560px]">{statement}</H>
+          <GradientWaveText
+            as={headingLevel}
+            waveColor={null}
+            startColor="rgba(241, 232, 216, 0.22)"
+            className="statement m-0 min-w-0 max-w-[980px] flex-[1_1_560px]"
+          >
+            {statement}
+          </GradientWaveText>
         </div>
         <div className="indent-editorial">{children}</div>
       </div>

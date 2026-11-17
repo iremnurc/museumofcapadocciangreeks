@@ -3,6 +3,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import type React from "react";
 import { useEffect, useRef, type ReactNode } from "react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -22,6 +23,7 @@ export function GradientWaveText({
   duration = 0.5,
   scrub = 0.2,
   triggerId,
+  as: Tag = "p",
 }: {
   children: ReactNode;
   className?: string;
@@ -34,8 +36,10 @@ export function GradientWaveText({
   scrub?: number;
   /** id of an element to drive the reveal (useful inside sticky sections) */
   triggerId?: string;
+  /** element to render: a paragraph by default, or a heading */
+  as?: "p" | "h2" | "h3";
 }) {
-  const ref = useRef<HTMLParagraphElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -110,8 +114,8 @@ export function GradientWaveText({
   }, [start, end, startColor, waveColor, duration, scrub, triggerId]);
 
   return (
-    <p ref={ref} className={className}>
+    <Tag ref={ref as React.Ref<HTMLHeadingElement & HTMLParagraphElement>} className={className}>
       {children}
-    </p>
+    </Tag>
   );
 }

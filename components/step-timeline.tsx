@@ -105,9 +105,9 @@ export function StepTimeline({ steps, activation = 0.5 }: { steps: Step[]; activ
             <span data-marker aria-hidden className="relative mt-[clamp(22px,2.6vw,38px)] flex h-6 w-6 flex-none items-center justify-center">
               <span className="step-marker block h-4 w-4 rotate-45 border border-stone/50 bg-parchment" />
             </span>
-            <div className="step-content flex min-w-0 flex-wrap items-baseline gap-x-[clamp(32px,6vw,96px)] gap-y-3">
-              <span className="w-[clamp(160px,18vw,260px)] flex-none font-serif text-[clamp(64px,7vw,104px)] leading-[0.9] text-ink">{s.year}</span>
-              <span className="min-w-0 max-w-[640px] flex-[1_1_380px] font-serif text-[22px] leading-normal text-body">{s.text}</span>
+            <div className="step-content flex min-w-0 max-w-[680px] flex-col gap-4">
+              <span className="font-serif text-[clamp(64px,7vw,104px)] leading-[0.9] text-ink">{s.year}</span>
+              <span className="font-serif text-[22px] leading-normal text-body">{s.text}</span>
             </div>
           </li>
         ))}

@@ -10,20 +10,15 @@ See `sitemap.md` for the current and proposed structure.
 | Styling / UI | **Tailwind CSS + shadcn/ui** | shadcn for the parts with behaviour (nav menu, sheet/mobile menu, dialog/lightbox, tabs, form, carousel); everything visual stays custom |
 | i18n | **next-intl**, English only at launch | Decided: English first. Routing is set up so `/el` can be added later without changing English URLs (English stays unprefixed at `/`) |
 | Content | **MDX files in the repo** (Velite or `@next/mdx` + Zod schemas) | Decided: content is edited by the developer, so no CMS is needed. Schemas keep frontmatter typed |
-| Images | `next/image` + CMS image pipeline | The current site serves 1–2 MB scaled JPEGs |
+| Images | `next/image` (files in repo) | The current site serves 1–2 MB scaled JPEGs |
 | Map | Static map image + link to Google Maps (or a Leaflet/OSM embed) | Avoids heavy Google embeds and cookie banners |
 | Contact form | Server Action + Resend (or Formspree) + honeypot/Turnstile | No form exists today |
 | Hosting | Vercel (or any Node host) | Preview deploys per branch |
 | Analytics | Plausible / Vercel Analytics (cookieless) | Removes the need for a cookie banner |
 
-## Design direction: "Woven Stone"
+## Design direction: final
 
-See `design/philosophy.md` and `design/direction-board.pdf` (PNG previews: `design/plate-*.png`).
-Logo concepts A–D are on plate II, and the starting point is the museum's existing double-spiral mark.
-
-- Quiet, editorial museum look: lots of whitespace, large photography of the objects, and a serif display face (Greek-capable, e.g. *GFS Didot*, *Noto Serif*) paired with a clean sans.
-- A colour palette taken from the collection: kilim reds and madder, indigo, ochre, and stone/tuff neutrals (Cappadocian rock).
-- One shared component kit: `Hero`, `SectionHeading`, `CollectionCard`, `EventCard`, `ObjectGallery` (lightbox), `HoursTable` + `OpenNowBadge`, `VisitCTA`, `LanguageSwitch`.
+See `brand.md` for the final branding: logo B (Woven), the madder, parchment and ink palette, EB Garamond + Commissioner, the ornament library, the photo treatments and the photography brief. The live design canvas is linked there.
 
 ## Content model
 

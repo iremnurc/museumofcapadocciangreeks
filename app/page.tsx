@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Accent, OutlinedRow, PatternFeature, VisitCta } from "@/components/blocks";
 import { CollectionsIndex } from "@/components/collections-index";
+import { GradientWaveText } from "@/components/gradient-wave-text";
 import { HomeHero } from "@/components/home-hero";
 import { QuoteScroll } from "@/components/quote-scroll";
 import { Mark } from "@/components/mark";
@@ -61,10 +62,14 @@ export default function HomePage() {
               <span className="text-xs tracking-[0.2em] text-terracotta">SINCE 1987</span>
               <Mark className="h-[22px] w-[42px] text-parchment" />
             </div>
-            <p className="m-0 min-w-0 max-w-[980px] flex-[1_1_560px] font-serif text-[clamp(36px,4.6vw,68px)] leading-[1.1] text-parchment">
+            <GradientWaveText
+              waveColor={null}
+              startColor="rgba(241, 232, 216, 0.22)"
+              className="m-0 min-w-0 max-w-[980px] flex-[1_1_560px] font-serif text-[clamp(36px,4.6vw,68px)] leading-[1.1] text-parchment"
+            >
               In Nea Karvali the locals founded the House of Culture to protect their heritage,{" "}
               <span className="italic text-terracotta">and began to collect the relics of the past.</span>
-            </p>
+            </GradientWaveText>
           </div>
           <div className="indent-editorial flex flex-wrap gap-12 border-t border-rule-madder pt-12">
             <p className="m-0 min-w-0 flex-[1_1_280px] font-serif text-[21px] leading-[1.6]">

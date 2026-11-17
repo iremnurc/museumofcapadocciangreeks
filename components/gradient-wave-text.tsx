@@ -28,7 +28,8 @@ export function GradientWaveText({
   start?: string;
   end?: string;
   startColor?: string;
-  waveColor?: string;
+  /** Colour each letter flashes through; null for a plain two-colour reveal. */
+  waveColor?: string | null;
   duration?: number;
   scrub?: number;
   /** id of an element to drive the reveal (useful inside sticky sections) */
@@ -40,12 +41,13 @@ export function GradientWaveText({
     const el = ref.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const endColor = getComputedStyle(el).color;
     const split = new SplitText(el, {
       type: "words, chars",
       autoSplit: true,
       onSplit(self) {
         const chars = self.chars as HTMLElement[];
+        // Each letter settles on its own CSS colour, so coloured spans keep their colour.
+        const ends = chars.map((c) => getComputedStyle(c).color);
         const active = new Set<HTMLElement>();
         const progress = { value: 0 };
         let ready = false;
@@ -54,7 +56,7 @@ export function GradientWaveText({
           const count = Math.round(progress.value * chars.length);
           chars.forEach((c, i) => {
             gsap.killTweensOf(c);
-            gsap.set(c, { color: i < count ? endColor : startColor });
+            gsap.set(c, { color: i < count ? ends[i] : startColor });
             if (i < count) active.add(c);
             else active.delete(c);
           });
@@ -84,10 +86,14 @@ export function GradientWaveText({
                 if (on && !active.has(c)) {
                   active.add(c);
                   gsap.killTweensOf(c);
-                  gsap
-                    .timeline()
-                    .to(c, { color: waveColor, duration: duration * 0.3, ease: "power2.out" })
-                    .to(c, { color: endColor, duration: duration * 0.7, ease: "power2.in" });
+                  if (waveColor) {
+                    gsap
+                      .timeline()
+                      .to(c, { color: waveColor, duration: duration * 0.3, ease: "power2.out" })
+                      .to(c, { color: ends[i], duration: duration * 0.7, ease: "power2.in" });
+                  } else {
+                    gsap.to(c, { color: ends[i], duration: duration * 0.6, ease: "power1.out" });
+                  }
                 } else if (!on && active.has(c)) {
                   active.delete(c);
                   gsap.killTweensOf(c);

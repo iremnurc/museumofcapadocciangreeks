@@ -103,9 +103,6 @@ export function CollectionsIndex() {
               </span>
             ))}
           </div>
-          <figcaption className="text-xs tracking-[0.06em] text-stone">
-            <span className="font-semibold text-ink">(FIG. {index + 1})</span> {current.caption}
-          </figcaption>
         </figure>
       </div>
     </section>

@@ -38,11 +38,11 @@ Every page except Contact ends with the same "Visit us" block.
 
 ## 2. Proposed site map (Next.js)
 
-`[lang]` = `el` | `en` (Turkish could be a phase-2 option: Cappadocia, Turkish visitors and academic partners).
+Launch is **English only, at the root** (no `/en` prefix). Greek can be added later under `/el/...`, and Turkish is a possible option after that.
 Items marked **(P2)** are phase 2. The site launches without them.
 
 ```
-/[lang]
+/
 ├── /                               Home
 ├── /visit                          Plan your visit         ← NEW (hours, tickets, getting there, map, accessibility, groups/schools)
 ├── /collections                    Collections overview
@@ -67,7 +67,7 @@ Items marked **(P2)** are phase 2. The site launches without them.
 
 ### Primary navigation (max 5 + language switch)
 
-`Visit` · `Collections` · `Events` · `History` · `About` · [EL | EN]
+`Visit` · `Collections` · `Events` · `History` · `About` (language switch added when Greek launches)
 
 Contact moves to the footer and to a button in the header. "Home" is the logo.
 
@@ -79,10 +79,5 @@ Address + map link · opening hours (live "Open now / Closed" badge) · contact 
 
 | Old | New |
 |---|---|
-| `/` | `/` (language-detected → `/el` or `/en`) |
-| `/collections/` | `/en/collections` |
-| `/events/` | `/en/events` |
-| `/about/` | `/en/about` |
-| `/contact/` | `/en/contact` |
-
-The old site is all English, so every old URL maps to `/en/...`. No old URLs are lost.
+All five existing URLs keep the same path (`/`, `/collections`, `/events`, `/about`, `/contact`), so no redirects are needed at launch.
+Only the trailing slash changes, and Next.js `trailingSlash: true` keeps it identical.

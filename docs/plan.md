@@ -8,15 +8,18 @@ See `sitemap.md` for the current and proposed structure.
 |---|---|---|
 | Framework | **Next.js (App Router) + TypeScript** | Pages are static (SSG/ISR), so the site is fast and cheap to host |
 | Styling / UI | **Tailwind CSS + shadcn/ui** | shadcn for the parts with behaviour (nav menu, sheet/mobile menu, dialog/lightbox, tabs, form, carousel); everything visual stays custom |
-| i18n | **next-intl** with `/[lang]` routes | Greek + English from day one, with hreflang |
-| Content | **Headless CMS** (recommended: Sanity; alternative: Payload) *or* MDX files in the repo | Decision needed: do museum staff edit events and collections themselves? |
+| i18n | **next-intl**, English only at launch | Decided: English first. Routing is set up so `/el` can be added later without changing English URLs (English stays unprefixed at `/`) |
+| Content | **MDX files in the repo** (Velite or `@next/mdx` + Zod schemas) | Decided: content is edited by the developer, so no CMS is needed. Schemas keep frontmatter typed |
 | Images | `next/image` + CMS image pipeline | The current site serves 1–2 MB scaled JPEGs |
 | Map | Static map image + link to Google Maps (or a Leaflet/OSM embed) | Avoids heavy Google embeds and cookie banners |
 | Contact form | Server Action + Resend (or Formspree) + honeypot/Turnstile | No form exists today |
 | Hosting | Vercel (or any Node host) | Preview deploys per branch |
 | Analytics | Plausible / Vercel Analytics (cookieless) | Removes the need for a cookie banner |
 
-## Design direction (to discuss)
+## Design direction: "Woven Stone"
+
+See `design/philosophy.md` and `design/direction-board.pdf` (PNG previews: `design/plate-*.png`).
+Logo concepts A–D are on plate II, and the starting point is the museum's existing double-spiral mark.
 
 - Quiet, editorial museum look: lots of whitespace, large photography of the objects, and a serif display face (Greek-capable, e.g. *GFS Didot*, *Noto Serif*) paired with a clean sans.
 - A colour palette taken from the collection: kilim reds and madder, indigo, ochre, and stone/tuff neutrals (Cappadocian rock).

@@ -36,48 +36,27 @@ Every page except Contact ends with the same "Visit us" block.
 
 ---
 
-## 2. Proposed site map (Next.js)
+## 2. Site map (designed on the canvas: "Site pages")
 
-Launch is **English only, at the root** (no `/en` prefix). Greek can be added later under `/el/...`, and Turkish is a possible option after that.
-Items marked **(P2)** are phase 2. The site launches without them.
+Launch is **English only, at the root**. Greek can be added later under `/el/...`.
+There are **no individual object pages**, because the museum won't provide per-object records. Objects open in a larger view (lightbox) on their collection page.
 
 ```
 /
-├── /                               Home
-├── /visit                          Plan your visit         ← NEW (hours, tickets, getting there, map, accessibility, groups/schools)
-├── /collections                    Collections overview
+├── /                         Home
+├── /visit                    Hours (winter/summer), tickets, getting here, good to know
+├── /collections              Overview of the 4 collections
 │   ├── /collections/costumes-textiles
+│   ├── /collections/jewellery-silver        (designed: filters + lightbox)
 │   ├── /collections/church-treasures
-│   ├── /collections/rugs-kilims-ceramics
-│   ├── /collections/documents-photographs   ← material already mentioned in About
-│   └── /collections/[collection]/[object]   (P2) single-object pages with image gallery
-├── /events                         Upcoming + past events (filter: festival / academic / exhibition)
-│   ├── /events/[slug]              Single event (date, place, poster, description, gallery)
-│   └── /events/akontisma-festival  Recurring summer festival (landing page)
-├── /history                        The Cappadocian Greeks   ← NEW (Rum / Karamanlides, the 1924 exchange, Nea Karvali)
-├── /about                          The museum
-│   ├── /about#story                Founding (1987), the House of Culture
-│   ├── /about#award                European Museum of the Year Award 1997
-│   └── /about/research             (P2) Cappadocian Studies Center, publications, academic contact
-├── /contact                        People, form, map
+│   └── /collections/rugs-kilims-ceramics
+├── /events                   Featured festival, upcoming/past list
+├── /history                  Who were the Cappadocian Greeks, timeline, our story (about)
+├── /contact                  Director + academic contact, contact form
 ├── /privacy
-├── /cookies
-└── 404 / not-found
+└── 404
 ```
 
-### Primary navigation (max 5 + language switch)
+**Main navigation:** Visit · Collections · Events · History · Contact, plus a "Plan your visit" button.
 
-`Visit` · `Collections` · `Events` · `History` · `About` (language switch added when Greek launches)
-
-Contact moves to the footer and to a button in the header. "Home" is the logo.
-
-### Footer
-
-Address + map link · opening hours (live "Open now / Closed" badge) · contact · social links · language · Privacy / Cookies · © year.
-
-### Redirects from the old URLs (301)
-
-| Old | New |
-|---|---|
-All five existing URLs keep the same path (`/`, `/collections`, `/events`, `/about`, `/contact`), so no redirects are needed at launch.
-Only the trailing slash changes, and Next.js `trailingSlash: true` keeps it identical.
+**Redirects:** the five existing URLs keep their paths, except `/about/` → `/history` (301).

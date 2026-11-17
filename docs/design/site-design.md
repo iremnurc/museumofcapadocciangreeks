@@ -33,7 +33,7 @@ The approved design lives on the canvas (Site pages: Home, Collections, Events, 
 
 ## Pages
 
-1. **Home**: hero (info line, giant name, object marquee with FIG. captions) · today strip (hours, admission, place) · quote with floating objects · collections index (hover list 01–03 + switching arched image) · Great Festival pattern feature · what's on (2 outlined rows) · since 1987 madder block · visit CTA · footer.
+1. **Home**: hero (info line, giant name, object marquee with FIG. captions) · today strip (hours, admission, place) · sticky quote section: the quote reveals with the gradient wave while 12 objects fly out from the centre, scaling and blurring (Osmo "Scaling Media on Scroll"; about 5 screens of scroll) · collections index (hover list 01–03 + switching arched image) · Great Festival pattern feature · what's on (2 outlined rows) · since 1987 madder block · visit CTA · footer.
 2. **Collections**: hero (*collections*) · anchor strip 01–03 · costumes (text + arched dress with circular earrings inset) · church treasures (madder block, B&W censer) · rugs, kilims & ceramics (rug-star pattern feature with two small arches) · visit CTA.
 3. **Events**: hero (*on*, Akontisma aerial) · programme rows · Great Festival (ram's-horn pattern feature, when/where) · symposiums madder block with four themes · academic contact CTA (Murat Eser).
 4. **About**: hero (*Cappadocian Greeks*) · four dates as rows with large years (1997 in madder) · our story madder block · quote with floating objects · collections CTA.

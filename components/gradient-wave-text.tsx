@@ -21,6 +21,7 @@ export function GradientWaveText({
   waveColor = "#D6503F",
   duration = 0.5,
   scrub = 0.2,
+  triggerId,
 }: {
   children: ReactNode;
   className?: string;
@@ -30,6 +31,8 @@ export function GradientWaveText({
   waveColor?: string;
   duration?: number;
   scrub?: number;
+  /** id of an element to drive the reveal (useful inside sticky sections) */
+  triggerId?: string;
 }) {
   const ref = useRef<HTMLParagraphElement>(null);
 
@@ -63,7 +66,7 @@ export function GradientWaveText({
             value: 1,
             ease: "none",
             scrollTrigger: {
-              trigger: el,
+              trigger: (triggerId && document.getElementById(triggerId)) || el,
               start,
               end,
               scrub,
@@ -98,7 +101,7 @@ export function GradientWaveText({
     });
 
     return () => split.revert();
-  }, [start, end, startColor, waveColor, duration, scrub]);
+  }, [start, end, startColor, waveColor, duration, scrub, triggerId]);
 
   return (
     <p ref={ref} className={className}>

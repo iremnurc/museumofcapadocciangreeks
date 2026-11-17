@@ -15,6 +15,21 @@ export const home = {
     { img: images.pouch, caption: "Beaded purse", frame: "rect", pos: "35% 45%", zoom: 1.6 },
     { img: images.censer, caption: "Silver censer", frame: "pill", pos: "50% 40%", zoom: 1.5 },
   ],
+  // Objects that fly out around the quote as you scroll (Home, "Our purpose").
+  flyingObjects: [
+    { img: images.cross, frame: "rect" },
+    { img: images.jug, frame: "arch" },
+    { img: images.earrings, frame: "circle" },
+    { img: images.dress, frame: "arch", pos: "50% 30%" },
+    { img: images.necklace, frame: "pill" },
+    { img: images.rugStars, frame: "rect" },
+    { img: images.buckle, frame: "circle" },
+    { img: images.censer, frame: "arch" },
+    { img: images.pouch, frame: "rect" },
+    { img: images.chainPendant, frame: "pill", pos: "50% 70%" },
+    { img: images.lionRug, frame: "arch" },
+    { img: images.goldThread, frame: "circle" },
+  ] as const,
   quote: "“This ancient, luminous and unique civilisation was at risk of fading into obscurity, leaving only scattered traces.”",
   collections: [
     {

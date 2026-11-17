@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Accent, OutlinedRow, PatternFeature, VisitCta } from "@/components/blocks";
 import { CollectionsIndex } from "@/components/collections-index";
 import { GradientWaveText } from "@/components/gradient-wave-text";
 import { HomeHero } from "@/components/home-hero";
+import { ScalingMedia } from "@/components/scaling-media";
 import { Mark } from "@/components/mark";
 import { home } from "@/content/home";
 import { images, site } from "@/content/site";
@@ -27,17 +27,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-label="Our purpose" className="relative overflow-hidden">
-        <div className="relative mx-auto max-w-[1100px] px-[clamp(16px,4vw,48px)] py-[clamp(120px,14vw,200px)] text-center">
-          <Float img={images.cross} className="top-[14%] left-[2%] aspect-[4/5]" />
-          <Float img={images.jug} className="top-[8%] right-[4%] aspect-[3/4] rounded-t-full" />
-          <Float img={images.earrings} className="bottom-[7%] left-[46%] aspect-square rounded-full" />
-          <GradientWaveText className="relative m-0 font-serif text-[clamp(34px,4.6vw,64px)] leading-[1.12] text-ink">{home.quote}</GradientWaveText>
-          <Link href="/about" className="text-link relative mt-8 inline-block">
-            why we collect
-          </Link>
-        </div>
-      </section>
+      <ScalingMedia id="purpose" label="Our purpose" items={home.flyingObjects}>
+        <GradientWaveText
+          triggerId="purpose"
+          start="top 70%"
+          end="top -60%"
+          className="m-0 max-w-[1000px] text-center font-serif text-[clamp(32px,4.6vw,64px)] leading-[1.12] text-ink"
+        >
+          {home.quote}
+        </GradientWaveText>
+        <Link href="/about" className="text-link mt-8 inline-block">
+          why we collect
+        </Link>
+      </ScalingMedia>
 
       <CollectionsIndex />
 
@@ -109,10 +111,3 @@ export default function HomePage() {
   );
 }
 
-function Float({ img, className }: { img: { src: string }; className: string }) {
-  return (
-    <div aria-hidden className={`absolute w-[60px] overflow-hidden sm:w-[clamp(90px,10vw,140px)] ${className}`}>
-      <Image src={img.src} alt="" fill sizes="140px" className="object-cover" />
-    </div>
-  );
-}

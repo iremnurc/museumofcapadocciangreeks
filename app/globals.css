@@ -23,11 +23,6 @@
   --font-serif: var(--font-garamond), "EB Garamond", Georgia, serif;
   --font-sans: var(--font-commissioner), "Commissioner", system-ui, sans-serif;
 
-  --animate-marquee: marquee 70s linear infinite;
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
 }
 
 @layer base {
@@ -69,7 +64,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee { animation: none; }
   .text-link:hover, .u-link:hover { animation: none; }
   .pill:hover { transform: none; }
 }

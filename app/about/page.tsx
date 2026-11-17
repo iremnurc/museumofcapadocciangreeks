@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Accent, Blush, EditorialBlock, PageHero, VisitCta } from "@/components/blocks";
 import { QuoteScroll } from "@/components/quote-scroll";
+import { StepTimeline } from "@/components/step-timeline";
 import type { MediaItem } from "@/components/scaling-media";
 import { images } from "@/content/site";
 
@@ -22,7 +23,7 @@ const dates = [
   { year: "1850", text: "The community council of Gelveri rules that jewellery may be worn in public only at baptisms and weddings." },
   { year: "1924", text: "With the exchange of populations, the Greeks of Cappadocia leave their homeland. Families from Gelveri (Karvali) settle near Kavala and name their new village Nea Karvali." },
   { year: "1987", text: "The people of Nea Karvali found the House of Culture and begin collecting documents, books, photographs, costumes, icons and objects of daily life." },
-  { year: "1997", text: "The museum shares the European Museum of the Year Award with the Museum of Anatolian Civilisations in Ankara, a sign of the undivided heritage of Anatolia.", highlight: true },
+  { year: "1997", text: "The museum shares the European Museum of the Year Award with the Museum of Anatolian Civilisations in Ankara, a sign of the undivided heritage of Anatolia." },
 ];
 
 export default function AboutPage() {
@@ -49,16 +50,7 @@ export default function AboutPage() {
             </h2>
             <span className="label">Four dates</span>
           </div>
-          <ol className="m-0 list-none border-b border-rule p-0">
-            {dates.map((d) => (
-              <li key={d.year} className="flex flex-wrap items-baseline gap-x-[clamp(32px,6vw,96px)] gap-y-3 border-t border-rule py-8">
-                <span className={`w-[clamp(160px,18vw,260px)] flex-none font-serif text-[clamp(64px,7vw,104px)] leading-[0.9] ${d.highlight ? "text-madder" : "text-ink"}`}>
-                  {d.year}
-                </span>
-                <span className="min-w-0 max-w-[640px] flex-[1_1_420px] font-serif text-[22px] leading-normal text-body">{d.text}</span>
-              </li>
-            ))}
-          </ol>
+          <StepTimeline steps={dates} />
         </div>
       </section>
 

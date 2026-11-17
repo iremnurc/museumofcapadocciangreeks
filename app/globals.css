@@ -86,6 +86,11 @@
   100% { background-size: 100% 1px; background-position: 0% 100%; }
 }
 
-/* If the home loader's script never runs, the overlay still clears itself. */
-.loader-fallback { animation: loader-fallback 0.4s ease 5s forwards; }
-@keyframes loader-fallback { to { opacity: 0; visibility: hidden; } }
+/* Step timeline (About): states set by components/step-timeline.tsx */
+.step-timeline .step-content { opacity: 0.25; transition: opacity 0.35s; }
+.step-timeline [data-status="active"] .step-content { opacity: 0.55; }
+.step-timeline [data-current] .step-content { opacity: 1; }
+.step-timeline .step-marker { transition: background-color 0.4s cubic-bezier(.645,.045,.355,1), border-color 0.4s, box-shadow 0.4s; }
+.step-timeline [data-status="active"] .step-marker { background-color: var(--color-madder); border-color: var(--color-madder); }
+.step-timeline [data-current] .step-marker { box-shadow: 0 0 0 6px rgb(142 42 34 / 0.16); }
+@media (prefers-reduced-motion: reduce) { .step-timeline .step-content { opacity: 1; } }

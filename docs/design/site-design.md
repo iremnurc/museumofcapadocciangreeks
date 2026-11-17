@@ -18,7 +18,7 @@ The approved design lives on the canvas (Site pages: Home, Collections, Events, 
 | Archive photos | black and white: `grayscale(1) contrast(1.12) sepia(0.12)` |
 | Gutters | `clamp(16px, 3vw, 40px)` for full-bleed sections; content max 1360px for editorial sections |
 | Section rhythm | generous: 96–200px vertical padding on desktop |
-| Motion | Home opening loader (strip of five arched objects slides through, the sides shrink, the museum-display photo opens to full screen, then the title rises in; once per session) · hero marquee (70 s loop, pauses on hover) and the Home quote's gradient wave text on scroll (letters go faint ink → knot red → ink); both off with reduced motion |
+| Motion | hero marquee (70 s loop, pauses on hover) and the Home quote's gradient wave text on scroll (letters go faint ink → knot red → ink); both off with reduced motion |
 
 ## Shared components
 
@@ -36,5 +36,5 @@ The approved design lives on the canvas (Site pages: Home, Collections, Events, 
 1. **Home**: hero (info line, giant name, object marquee with FIG. captions) · today strip (hours, admission, place) · sticky quote section: the quote reveals with the gradient wave while 12 objects fly out from the centre, scaling and blurring (Osmo "Scaling Media on Scroll"; about 5 screens of scroll) · collections index (hover list 01–03 + switching arched image) · Great Festival pattern feature · what's on (2 outlined rows) · since 1987 madder block · visit CTA · footer.
 2. **Collections**: hero (*collections*) · anchor strip 01–03 · costumes (text + arched dress with circular earrings inset) · church treasures (madder block, B&W censer) · rugs, kilims & ceramics (rug-star pattern feature with two small arches) · visit CTA.
 3. **Events**: hero (*on*, Akontisma aerial) · programme rows · Great Festival (ram's-horn pattern feature, when/where) · symposiums madder block with four themes · academic contact CTA (Murat Eser).
-4. **About**: hero (*Cappadocian Greeks*) · four dates as rows with large years (1997 in madder) · our story madder block · quote with floating objects · collections CTA.
+4. **About**: hero (*Cappadocian Greeks*) · step timeline of four dates (thin rule that fills madder on scroll, diamond markers, large years; dates light up at mid-screen) · our story madder block · quote with floating objects · collections CTA.
 5. **Contact**: hero (*us*, B&W building) · two people as outlined rows · form (underlined fields, pill submit, thank-you state with the eye motif) · visit block on ink (season switch, hours, €8 admission, find us + Google Maps).

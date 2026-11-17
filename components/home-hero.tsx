@@ -26,17 +26,18 @@ function Figure({ item, n, hidden }: { item: (typeof home.marquee)[number]; n: n
 
 export function HomeHero() {
   return (
-    <section aria-label="Welcome" className="bg-ink text-parchment">
+    <section data-hero aria-label="Welcome" className="bg-ink text-parchment">
       <div className="gutter flex flex-col gap-[clamp(40px,5vw,80px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(72px,8vw,128px)]">
-        <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px] text-mist">
+        <div data-hero-fade className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px] text-mist">
           {home.info.map((i) => (
             <span key={i}>{i}</span>
           ))}
         </div>
-        <h1 className="m-0 font-serif font-normal leading-[0.84] tracking-[-0.02em]" style={{ fontSize: "clamp(64px, 13.6vw, 196px)" }}>
+        <h1 data-hero-title className="m-0 font-serif font-normal leading-[0.84] tracking-[-0.02em]" style={{ fontSize: "clamp(64px, 13.6vw, 196px)" }}>
           Cappadocian <span className="block italic text-terracotta" style={{ marginLeft: "0.18em" }}>Greeks</span>
         </h1>
         <div
+          data-hero-fade
           role="region"
           aria-label="Objects from the collection"
           className="group -mx-[clamp(16px,3vw,40px)] overflow-hidden"

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Accent, OutlinedRow, PatternFeature, VisitCta } from "@/components/blocks";
 import { CollectionsIndex } from "@/components/collections-index";
 import { HomeHero } from "@/components/home-hero";
+import { HomeLoader } from "@/components/home-loader";
 import { QuoteScroll } from "@/components/quote-scroll";
 import { Mark } from "@/components/mark";
 import { home } from "@/content/home";
@@ -11,6 +12,7 @@ export default function HomePage() {
   const { winter, summer } = site.hours;
   return (
     <>
+      <HomeLoader />
       <HomeHero />
 
       <section aria-label="Today" className="border-b border-rule">

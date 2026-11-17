@@ -85,3 +85,7 @@
   50.01% { background-size: 0% 1px; background-position: 0% 100%; }
   100% { background-size: 100% 1px; background-position: 0% 100%; }
 }
+
+/* If the home loader's script never runs, the overlay still clears itself. */
+.loader-fallback { animation: loader-fallback 0.4s ease 5s forwards; }
+@keyframes loader-fallback { to { opacity: 0; visibility: hidden; } }

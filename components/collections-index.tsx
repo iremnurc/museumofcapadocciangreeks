@@ -44,26 +44,18 @@ export function CollectionsIndex() {
               return (
                 <li key={c.id} className="flex items-baseline gap-[18px]">
                   <span className="w-7 flex-none text-[13px] text-madder">0{i + 1}</span>
-                  <div className="flex flex-col">
-                    <button
-                      type="button"
-                      aria-pressed={on}
-                      onMouseEnter={() => setIndex(i)}
-                      onFocus={() => setIndex(i)}
-                      onClick={() => setIndex(i)}
-                      className={`cursor-pointer border-0 bg-transparent p-0 py-1 text-left font-serif text-[40px] leading-[1.1] transition-colors duration-300 sm:text-[56px] ${
-                        on ? "italic text-ink" : "text-mist"
-                      }`}
-                    >
-                      {c.name}
-                    </button>
-                    {/* progress line under the active name while playing */}
-                    <span aria-hidden className="block h-px w-full bg-rule/0">
-                      {on && !paused && !reduced ? (
-                        <span key={index} className="block h-px origin-left bg-madder" style={{ animation: `grow ${INTERVAL}ms linear forwards` }} />
-                      ) : null}
-                    </span>
-                  </div>
+                  <button
+                    type="button"
+                    aria-pressed={on}
+                    onMouseEnter={() => setIndex(i)}
+                    onFocus={() => setIndex(i)}
+                    onClick={() => setIndex(i)}
+                    className={`cursor-pointer border-0 bg-transparent p-0 py-1 text-left font-serif text-[40px] leading-[1.1] transition-colors duration-300 sm:text-[56px] ${
+                      on ? "italic text-ink" : "text-mist"
+                    }`}
+                  >
+                    {c.name}
+                  </button>
                 </li>
               );
             })}
@@ -98,6 +90,17 @@ export function CollectionsIndex() {
                 className={`object-cover transition-opacity duration-700 ${i === index ? "opacity-100" : "opacity-0"}`}
                 style={{ objectPosition: c.pos }}
               />
+            ))}
+          </div>
+          {/* progress: one segment per collection, the current one fills while playing */}
+          <div aria-hidden className="flex gap-2">
+            {items.map((c, i) => (
+              <span key={c.id} className="relative block h-0.5 flex-1 overflow-hidden bg-rule">
+                {i < index || (i === index && (paused || reduced)) ? <span className="absolute inset-0 bg-madder" /> : null}
+                {i === index && !paused && !reduced ? (
+                  <span key={`p${index}`} className="absolute inset-0 origin-left bg-madder" style={{ animation: `grow ${INTERVAL}ms linear forwards` }} />
+                ) : null}
+              </span>
             ))}
           </div>
           <figcaption className="text-xs tracking-[0.06em] text-stone">

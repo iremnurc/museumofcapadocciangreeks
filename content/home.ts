@@ -31,7 +31,7 @@ export const home = {
       caption: "Embroidered velvet dress",
       img: images.dress,
       pos: "50% 30%",
-      text: "Garments and ornaments of the Greeks of the East, the Rum or Karamanlides. In 1850 the community of Gelveri allowed jewellery to be worn in public only at baptisms and weddings.",
+      text: "Garments and jewellery of the Greeks of the East. In 1850 the community of Gelveri allowed jewellery in public only at baptisms and weddings.",
     },
     {
       id: "church",
@@ -39,7 +39,7 @@ export const home = {
       caption: "Silver censer",
       img: images.censer,
       pos: "50% 40%",
-      text: "Rare ecclesiastical objects from the 17th century onwards, from the Monastic Brotherhood of Gelveri and the Brotherhood of Saint John the Forerunner in Zincidere.",
+      text: "Rare church objects from the 17th century onwards, from the brotherhoods of Gelveri and of Saint John the Forerunner in Zincidere.",
     },
     {
       id: "rugs",
@@ -47,7 +47,7 @@ export const home = {
       caption: "Rug with columns and stars",
       img: images.rugColumns,
       pos: "50% 50%",
-      text: "Cappadocian carpets with vivid patterns and colours, and original ceramics of exceptional beauty by Cappadocian potters.",
+      text: "Cappadocian carpets and kilims with vivid patterns and colours, and original ceramics of exceptional beauty by local potters.",
     },
   ],
 };

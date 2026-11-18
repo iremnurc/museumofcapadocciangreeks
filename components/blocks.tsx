@@ -82,7 +82,7 @@ export function PatternFeature({
   children?: ReactNode;
 }) {
   return (
-    <section id={id} className="relative overflow-hidden bg-parchment">
+    <section id={id} className="relative overflow-hidden bg-paper">
       <PatternField motif={motif} className="absolute top-0 left-0 h-[40%] w-full sm:h-full sm:w-[56%]" />
       <div className="gutter relative flex flex-wrap items-end gap-x-12 gap-y-10 py-[clamp(80px,10vw,140px)]">
         <div aria-hidden className="hidden min-w-0 flex-1 lg:block" />

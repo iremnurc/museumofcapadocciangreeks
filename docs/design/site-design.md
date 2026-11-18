@@ -29,7 +29,7 @@ The approved design lives on the canvas (Site pages: Home, Collections, Events, 
 - **Madder editorial block**: label + small mark in a 220px left column, editorial statement on the right; below, indented by `clamp(0px, (100vw − 640px)/2, 268px)`, an arched photo or a list and copy above a thin rule.
 - **Outlined rows**: 1px `#CDBDA3` border, padding 26×28; small caps label (200–240px) · 30px serif title · 15px description.
 - **Visit-style CTA**: centred label, 56px H2, one sentence, pill + text link; two arched photos cropped off the left (bottom) and right (top) edges, hidden on phones.
-- **Footer** (shared): eye-motif band on madder; four columns (Visit, Opening hours with season first, Museum links, Contact); copyright row with the small mark; giant "Cappadocian *Greeks*" cut by the bottom edge (shows about two thirds).
+- **Footer** (shared): koçboynuzu (ram's horn) band on madder; four columns (Visit, Opening hours with season first, Museum links, Contact); copyright row with the small mark; giant "Cappadocian *Greeks*" cut by the bottom edge (shows about two thirds).
 
 ## Pages
 

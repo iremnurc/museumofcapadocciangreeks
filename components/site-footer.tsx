@@ -1,20 +1,20 @@
 import Link from "next/link";
 import { Mark } from "@/components/mark";
-import { eyeDark, eyeLight } from "@/lib/pixels";
+import { ramsHornBand } from "@/lib/pixels";
 import { nav, site } from "@/content/site";
 
 export function SiteFooter() {
   const contact = site.contacts[0];
   return (
     <footer className="overflow-hidden bg-ink pb-[22px] text-[15px] text-sand">
+      {/* koçboynuzu (ram's horn) band: fertility, heroism and strength */}
       <svg width="100%" height="46" aria-hidden shapeRendering="crispEdges" className="block bg-madder">
         <defs>
-          <pattern id="eye-band" width="24" height="23" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
-            <path fill="#F1E8D8" d={eyeLight} />
-            <path fill="#1A1612" d={eyeDark} />
+          <pattern id="ram-band" width="28" height="15" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
+            <path fill="#F1E8D8" d={ramsHornBand} transform="translate(5,0)" />
           </pattern>
         </defs>
-        <rect width="100%" height="46" fill="url(#eye-band)" />
+        <rect y="8" width="100%" height="30" fill="url(#ram-band)" />
       </svg>
 
       <div className="gutter pt-16">

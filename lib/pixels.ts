@@ -20,3 +20,5 @@ export const pitrakB = "M11 11h1v1h-1z";
 // Yıldız (kilim star), traced from the reference sheet: 21 x 17
 export const kilimStarA = "M6 0h9v1h-9zM7 1h7v1h-7zM8 2h5v1h-5zM3 3h15v1h-15zM4 4h13v1h-13zM0 5h21v1h-21zM0 6h10v1h-10zM11 6h10v1h-10zM2 7h7v1h-7zM12 7h7v1h-7zM2 8h6v1h-6zM13 8h6v1h-6zM2 9h7v1h-7zM12 9h7v1h-7zM0 10h10v1h-10zM11 10h10v1h-10zM0 11h21v1h-21zM4 12h13v1h-13zM3 13h15v1h-15zM8 14h5v1h-5zM7 15h7v1h-7zM6 16h9v1h-9z";
 export const kilimStarB = "M10 8h1v1h-1z";
+// Koçboynuzu (ram's horn) for the footer band, traced from the reference sheet: 18 x 15
+export const ramsHornBand = "M3 0h12v1h-12zM2 1h14v1h-14zM1 2h3v1h-3zM5 2h8v1h-8zM14 2h3v1h-3zM0 3h4v1h-4zM6 3h6v1h-6zM14 3h4v1h-4zM1 4h4v1h-4zM6 4h6v1h-6zM13 4h4v1h-4zM2 5h2v1h-2zM5 5h3v1h-3zM10 5h3v1h-3zM14 5h2v1h-2zM4 6h3v1h-3zM11 6h3v1h-3zM3 7h3v1h-3zM12 7h3v1h-3zM2 8h4v1h-4zM12 8h4v1h-4zM3 9h3v1h-3zM12 9h3v1h-3zM4 10h3v1h-3zM11 10h3v1h-3zM5 11h3v1h-3zM10 11h3v1h-3zM6 12h6v1h-6zM7 13h4v1h-4zM8 14h2v1h-2z";

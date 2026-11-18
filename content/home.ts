@@ -1,7 +1,7 @@
 import { images } from "./site";
 
 export const home = {
-  info: ["Historical & Ethnographical Museum", "Nea Karvali · Kavala", "Mon–Sat · since 1987"],
+  info: ["Historical & Ethnographical Museum", "Nea Karvali · Kavala"],
   // Objects that drift through the hero, in order. frame: arch | rect | pill
   marquee: [
     { img: images.dress, caption: "Embroidery on velvet", frame: "arch", pos: "50% 22%", zoom: 1.5 },

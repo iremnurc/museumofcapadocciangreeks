@@ -4,9 +4,18 @@ import { useActionState } from "react";
 import { sendMessage, type FormState } from "@/app/contact/actions";
 import { eyeA, eyeB } from "@/lib/pixels";
 
-const field = "border-0 border-b border-ink bg-transparent py-3 text-lg rounded-none focus:outline-none focus:border-madder";
-const label = "flex flex-col gap-1 text-[13px] text-stone";
+// Inline fields sit in the sentence: serif, underlined, turning red when active.
+const inline =
+  "ml-2 inline-block border-0 border-b border-stone/60 bg-transparent px-0.5 py-0 font-serif text-[1em] leading-[1.15] italic text-madder placeholder:text-stone/70 focus:border-madder focus:outline-none rounded-none [field-sizing:content] min-w-[4ch]";
 
+const topics = [
+  { value: "Planning a visit", label: "a visit" },
+  { value: "Group or school visit", label: "a group or school visit" },
+  { value: "Academic enquiry", label: "an academic enquiry" },
+  { value: "Something else", label: "something else" },
+];
+
+/** Contact form written as a short letter: the visitor fills in the blanks. */
 export function ContactForm() {
   const [state, action, pending] = useActionState<FormState, FormData>(sendMessage, { status: "idle" });
 
@@ -29,29 +38,43 @@ export function ContactForm() {
   }
 
   return (
-    <form action={action} className="flex flex-col gap-7">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-7">
-        <label className={label}>
-          Your name
-          <input name="name" type="text" required autoComplete="name" className={field} />
-        </label>
-        <label className={label}>
-          Email
-          <input name="email" type="email" required autoComplete="email" className={field} />
-        </label>
-      </div>
-      <label className={label}>
-        About
-        <select name="topic" className={field} defaultValue="Planning a visit">
-          <option>Planning a visit</option>
-          <option>Group or school visit</option>
-          <option>Academic enquiry</option>
-          <option>Something else</option>
-        </select>
-      </label>
-      <label className={label}>
-        Message
-        <textarea name="message" rows={4} required className={`${field} resize-y`} />
+    <form action={action} className="flex flex-col gap-8">
+      <p className="m-0 font-serif text-[clamp(24px,2.4vw,34px)] leading-[1.9] text-ink">
+        Hello, my name is
+        <input name="name" type="text" required autoComplete="name" aria-label="Your name" placeholder="your name" size={14} className={inline} />{" "}
+        and you can reach me at
+        <span className="whitespace-nowrap">
+          <input name="email" type="email" required autoComplete="email" aria-label="Your email" placeholder="your email" size={18} className={inline} />.
+        </span>{" "}
+        I&apos;m writing about
+        <span className="relative inline-block whitespace-nowrap">
+          <select name="topic" aria-label="What you are writing about" defaultValue={topics[0].value} className={`${inline} cursor-pointer appearance-none pr-6`}>
+            {topics.map((t) => (
+              <option key={t.value} value={t.value}>
+                {t.label}
+              </option>
+            ))}
+          </select>
+          <span aria-hidden className="pointer-events-none absolute right-1 bottom-[0.45em] text-[0.45em] text-madder">
+            ▼
+          </span>
+          .
+        </span>
+      </p>
+      <label className="flex flex-col gap-2">
+        <span className="font-serif text-[clamp(24px,2.4vw,34px)] leading-tight text-ink">My message:</span>
+        <textarea
+          name="message"
+          rows={4}
+          required
+          placeholder="Write here…"
+          className="w-full resize-none border-0 bg-transparent font-serif text-[21px] leading-[2] italic text-body placeholder:text-stone/70 focus:outline-none"
+          // ruled lines, like writing paper
+          style={{
+            backgroundImage: "linear-gradient(to bottom, transparent calc(2em - 1px), rgb(106 98 88 / 0.35) calc(2em - 1px))",
+            backgroundSize: "100% 2em",
+          }}
+        />
       </label>
       <input name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
       {state.status === "error" ? (
@@ -59,9 +82,11 @@ export function ContactForm() {
           {state.message}
         </p>
       ) : null}
-      <button type="submit" disabled={pending} className="pill cursor-pointer self-start border-0 px-[30px] py-[15px] disabled:opacity-60">
-        {pending ? "Sending…" : "Send message"}
-      </button>
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <button type="submit" disabled={pending} className="pill cursor-pointer border-0 px-8 py-4 text-[15px] disabled:opacity-60">
+          {pending ? "Sending…" : "Send message"}
+        </button>
+      </div>
     </form>
   );
 }

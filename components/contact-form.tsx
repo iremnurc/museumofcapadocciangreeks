@@ -3,7 +3,6 @@
 import * as Select from "@radix-ui/react-select";
 import { useActionState } from "react";
 import { sendMessage, type FormState } from "@/app/contact/actions";
-import { eyeA, eyeB } from "@/lib/pixels";
 
 // Inline fields sit in the sentence: serif, underlined, turning red when active.
 const inline =
@@ -22,18 +21,10 @@ export function ContactForm() {
 
   if (state.status === "sent") {
     return (
-      <div role="status" className="flex flex-col items-start gap-4 py-2">
-        <svg viewBox="0 0 19 19" width="76" height="76" shapeRendering="crispEdges" aria-hidden>
-          <path fill="#8E2A22" d={eyeA} />
-          <path fill="#1A1612" d={eyeB} />
-        </svg>
-        <span className="font-serif text-[56px] leading-none">
-          Thank <span className="italic text-madder">you</span>
-        </span>
-        <span className="font-serif text-[21px] leading-normal text-body">Your message has been sent. We&apos;ll reply as soon as we can.</span>
-        <button type="button" onClick={() => location.reload()} className="ring-btn cursor-pointer rounded-full border border-ink bg-transparent px-[22px] py-3 text-sm hover:bg-ink hover:text-paper">
-          Send another
-        </button>
+      <div role="status" className="flex flex-col gap-4">
+        <p className="m-0 font-serif text-[clamp(24px,2.4vw,34px)] leading-[1.4] text-ink">
+          Thank <span className="italic text-madder">you</span>. Your message has been sent, and we&apos;ll reply by email as soon as we can.
+        </p>
       </div>
     );
   }

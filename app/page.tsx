@@ -34,7 +34,7 @@ export default function HomePage() {
       <CollectionsIndex />
 
       <PatternFeature
-        motif="lozenge"
+        motif="star"
         image={images.festival}
         position="30% 60%"
         label="Every summer · Akontisma"

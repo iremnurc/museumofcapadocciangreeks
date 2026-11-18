@@ -3,7 +3,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { GradientWaveText } from "@/components/gradient-wave-text";
 import { Mark } from "@/components/mark";
-import { PatternField, type Motif } from "@/components/pattern";
+import type { Motif } from "@/components/pattern";
+import { PixelField } from "@/components/pixel-field";
 import type { Img } from "@/content/site";
 import { cn } from "@/lib/cn";
 
@@ -70,6 +71,7 @@ export function PatternFeature({
   title,
   text,
   children,
+  bleed = "both",
 }: {
   id?: string;
   motif: Motif;
@@ -80,10 +82,13 @@ export function PatternFeature({
   title: ReactNode;
   text: string;
   children?: ReactNode;
+  /** which neighbouring sections the pattern may step out into (avoid the red blocks) */
+  bleed?: "both" | "top" | "bottom" | "none";
 }) {
   return (
-    <section id={id} className="relative overflow-hidden bg-paper">
-      <PatternField motif={motif} className="absolute top-0 left-0 h-[40%] w-full sm:h-full sm:w-[56%]" />
+    // z-[1] and no overflow clipping so the pattern can step out into the sections above and below
+    <section id={id} className="relative z-[1] overflow-x-clip bg-paper">
+      <PixelField motif={motif} bleed={bleed} className="absolute top-0 left-0 h-[40%] w-full sm:h-full sm:w-[56%]" />
       <div className="gutter relative flex flex-wrap items-end gap-x-12 gap-y-10 py-[clamp(80px,10vw,140px)]">
         <div aria-hidden className="hidden min-w-0 flex-1 lg:block" />
         <div className="relative aspect-[4/5] w-full min-w-0 flex-[0_1_480px]">

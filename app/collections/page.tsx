@@ -80,6 +80,7 @@ export default function CollectionsPage() {
       <PatternFeature
         id="rugs"
         motif="star"
+        bleed="bottom"
         image={images.rugColumns}
         archival={false}
         position="50% 40%"

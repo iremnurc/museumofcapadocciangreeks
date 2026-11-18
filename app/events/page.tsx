@@ -73,7 +73,7 @@ export default function EventsPage() {
             <li key={t.title} className="flex flex-wrap items-baseline gap-x-8 gap-y-2 border-t border-rule-dark py-[22px]">
               <span className="w-10 text-[13px] text-terracotta">0{i + 1}</span>
               <span className="flex-none font-serif text-[26px] text-parchment sm:text-[30px]">{t.title}</span>
-              {t.note ? <span className="min-w-[240px] flex-1 text-[15px] leading-normal">{t.note}</span> : null}
+              {t.note ? <span className="min-w-[240px] flex-1 text-[15px] leading-normal sm:text-right">{t.note}</span> : null}
             </li>
           ))}
         </ul>

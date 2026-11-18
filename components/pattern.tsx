@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { elibelindeA, elibelindeB, lozenge, pitrakA, pitrakB, ramA, ramB, starA, starB } from "@/lib/pixels";
+import { elibelindeA, elibelindeB, kilimStarA, kilimStarB, lozenge, pitrakA, pitrakB, ramA, ramB } from "@/lib/pixels";
 
 export type Motif = "lozenge" | "star" | "ram" | "elibelinde" | "pitrak";
 
@@ -11,6 +11,8 @@ type Spec = { a: string; b: string; w: number; h: number; pad: [number, number];
 const halfDrop: Partial<Record<Motif, Spec>> = {
   elibelinde: { a: elibelindeA, b: elibelindeB, w: 27, h: 29, pad: [14, 10], scale: 2 },
   pitrak: { a: pitrakA, b: pitrakB, w: 21, h: 21, pad: [9, 9], scale: 3 },
+  // yıldız (kilim star), traced from the reference sheet
+  star: { a: kilimStarA, b: kilimStarB, w: 21, h: 17, pad: [11, 9], scale: 3 },
 };
 
 function Tile({ motif, id }: { motif: Motif; id: string }) {
@@ -40,21 +42,6 @@ function Tile({ motif, id }: { motif: Motif; id: string }) {
         <path fill="#8E2A22" d={lozenge} />
       </pattern>
     );
-  if (motif === "star") {
-    const s = (x: number, y: number) => (
-      <g transform={`translate(${x},${y})`}>
-        <path fill="#8E2A22" d={starA} />
-        <path fill="#1A1612" d={starB} />
-      </g>
-    );
-    return (
-      <pattern id={id} width="36" height="36" patternUnits="userSpaceOnUse" patternTransform={`scale(${STAR_SCALE})`}>
-        {s(2, 2)}
-        {s(20, 20)}
-        <path fill="#8E2A22" d="M18 9h1v1h-1zM0 27h1v1h-1z" />
-      </pattern>
-    );
-  }
   const r = (x: number, y: number) => (
     <g transform={`translate(${x},${y})`}>
       <path fill="#8E2A22" d={ramA} />
@@ -69,12 +56,10 @@ function Tile({ motif, id }: { motif: Motif; id: string }) {
   );
 }
 
-const STAR_SCALE = 3; // the rug star, drawn smaller than before (was 4)
-
 // Size of one repeat on screen, in px.
 const tileSize: Record<Motif, { w: number; h: number }> = {
   lozenge: { w: 16 * 6, h: 16 * 6 },
-  star: { w: 36 * STAR_SCALE, h: 36 * STAR_SCALE },
+  star: { w: (21 + 11) * 2 * 3, h: (17 + 9) * 3 },
   ram: { w: 48 * 3, h: 52 * 3 },
   elibelinde: { w: (27 + 14) * 2 * 2, h: (29 + 10) * 2 },
   pitrak: { w: (21 + 9) * 2 * 3, h: (21 + 9) * 3 },

@@ -17,3 +17,6 @@ export const elibelindeB = "M13 7h1v1h-1zM13 20h1v1h-1z";
 // Pitrak (burdock): stepped serrated medallion with forked arms, 21 x 21
 export const pitrakA = "M8 0h1v1h-1zM12 0h1v1h-1zM9 1h1v1h-1zM11 1h1v1h-1zM10 2h1v1h-1zM10 3h1v1h-1zM9 4h3v1h-3zM9 5h3v1h-3zM7 6h7v1h-7zM7 7h7v1h-7zM0 8h1v1h-1zM5 8h5v1h-5zM11 8h5v1h-5zM20 8h1v1h-1zM1 9h1v1h-1zM5 9h4v1h-4zM12 9h4v1h-4zM19 9h1v1h-1zM2 10h6v1h-6zM13 10h6v1h-6zM1 11h1v1h-1zM5 11h4v1h-4zM12 11h4v1h-4zM19 11h1v1h-1zM0 12h1v1h-1zM5 12h5v1h-5zM11 12h5v1h-5zM20 12h1v1h-1zM7 13h7v1h-7zM7 14h7v1h-7zM9 15h3v1h-3zM9 16h3v1h-3zM10 17h1v1h-1zM10 18h1v1h-1zM9 19h1v1h-1zM11 19h1v1h-1zM8 20h1v1h-1zM12 20h1v1h-1z";
 export const pitrakB = "M10 9h1v1h-1zM9 10h3v1h-3zM10 11h1v1h-1z";
+// Yıldız (kilim star), traced from the reference sheet: 21 x 17
+export const kilimStarA = "M6 0h9v1h-9zM7 1h7v1h-7zM8 2h5v1h-5zM3 3h15v1h-15zM4 4h13v1h-13zM0 5h21v1h-21zM0 6h10v1h-10zM11 6h10v1h-10zM2 7h7v1h-7zM12 7h7v1h-7zM2 8h6v1h-6zM13 8h6v1h-6zM2 9h7v1h-7zM12 9h7v1h-7zM0 10h10v1h-10zM11 10h10v1h-10zM0 11h21v1h-21zM4 12h13v1h-13zM3 13h15v1h-15zM8 14h5v1h-5zM7 15h7v1h-7zM6 16h9v1h-9z";
+export const kilimStarB = "M10 8h1v1h-1z";

@@ -28,12 +28,12 @@ export function ContactForm({ intro }: { intro: ReactNode }) {
     // a different key remounts the column: the heading-reveal split replaced React's text nodes
     return (
       <div key="sent" className={row}>
-        <div role="status" className="sent-note flex min-w-0 flex-[1_1_360px] flex-col gap-5">
+        <div role="status" className="sent-note mx-auto flex min-w-0 max-w-[560px] flex-col items-center gap-5 text-center">
           <span className="label">Message sent</span>
           <h2 className="h2 m-0">
             Thank <span className="italic text-madder">you</span>
           </h2>
-          <p className="m-0 max-w-[420px] font-serif text-[21px] leading-normal text-body">
+          <p className="m-0 max-w-[460px] font-serif text-[21px] leading-normal text-body">
             Your note{about ? ` about ${about}` : ""} is with us. We&apos;ll write back
             {state.email ? (
               <>

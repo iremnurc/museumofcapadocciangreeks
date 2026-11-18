@@ -44,7 +44,9 @@ export function QueuedReveal() {
       ...[...document.querySelectorAll("[data-queued-reveal-children]")].flatMap((g) => [...g.children]),
     ]);
 
+    // headings have their own line reveal; leave them (and anything holding one) alone
     items.forEach((item) => {
+      if (item.matches("[data-heading-reveal]") || item.querySelector("[data-heading-reveal]")) return;
       if (item.getBoundingClientRect().bottom <= 0) {
         gsap.set(item, { autoAlpha: 1 }); // already scrolled past
         return;

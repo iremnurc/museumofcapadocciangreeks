@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Commissioner, EB_Garamond } from "next/font/google";
+import { HeadingReveal } from "@/components/heading-reveal";
 import { QueuedReveal } from "@/components/queued-reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <SiteFooter />
         <QueuedReveal />
+        <HeadingReveal />
       </body>
     </html>
   );

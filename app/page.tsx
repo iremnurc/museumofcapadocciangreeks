@@ -45,7 +45,7 @@ export default function HomePage() {
       <section aria-label="Events">
         <div data-queued-reveal-children className="gutter flex flex-col gap-7 py-[clamp(64px,8vw,112px)]">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="m-0 font-serif text-[clamp(48px,6vw,88px)] font-normal italic leading-[0.95] text-madder">what&apos;s on</h2>
+            <h2 data-heading-reveal className="m-0 font-serif text-[clamp(48px,6vw,88px)] font-normal italic leading-[0.95] text-madder">what&apos;s on</h2>
             <Link href="/events" className="pill">
               All events
             </Link>

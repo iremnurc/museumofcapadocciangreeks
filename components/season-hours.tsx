@@ -13,7 +13,7 @@ export function SeasonHours() {
   return (
     <div className="flex flex-col gap-[clamp(48px,6vw,80px)]">
       <div className="flex flex-wrap items-end justify-between gap-6">
-        <h2 className="m-0 font-serif text-[clamp(64px,9vw,136px)] font-normal leading-[0.9] text-parchment">
+        <h2 data-heading-reveal className="m-0 font-serif text-[clamp(64px,9vw,136px)] font-normal leading-[0.9] text-parchment">
           Visit <span className="italic text-terracotta">us</span>
         </h2>
         <div role="group" aria-label="Season" className="flex gap-1 rounded-full border border-[#5A524A] p-1">

@@ -38,17 +38,17 @@ export default function ContactPage() {
       </section>
 
       <section aria-label="Send a message">
-        <div data-queued-reveal-children className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-start gap-x-20 gap-y-14 py-[clamp(96px,11vw,160px)]">
-          <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-5">
+        <div className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-start gap-x-20 gap-y-14 py-[clamp(96px,11vw,160px)]">
+          <div data-queued-reveal-children className="flex min-w-0 flex-[1_1_360px] flex-col gap-5">
             <span className="label">Write to us</span>
-            <h2 className="h2 m-0">
+            <h2 data-heading-reveal className="h2 m-0">
               Send a <Accent>message</Accent>
             </h2>
             <p className="m-0 max-w-[420px] font-serif text-[21px] leading-normal text-body">
               Planning a visit, bringing a group or school, or writing about the Cappadocian Greeks? We&apos;ll reply as soon as we can.
             </p>
           </div>
-          <div className="min-w-0 flex-[1.3_1_480px]">
+          <div data-queued-reveal-item className="min-w-0 flex-[1.3_1_480px]">
             <ContactForm />
           </div>
         </div>

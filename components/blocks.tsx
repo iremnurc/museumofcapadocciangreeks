@@ -36,7 +36,7 @@ export function PageHero({
             <span key={i}>{i}</span>
           ))}
         </div>
-        <h1 className={cn("h1 m-0 text-parchment", titleClassName)}>{title}</h1>
+        <h1 data-heading-reveal className={cn("h1 m-0 text-parchment", titleClassName)}>{title}</h1>
         <div className="flex flex-wrap items-end gap-x-[clamp(40px,6vw,96px)] gap-y-8">
           <p className="m-0 min-w-0 max-w-[560px] flex-[1_1_360px] font-serif text-[clamp(20px,1.7vw,24px)] leading-normal text-sand">
             {intro}
@@ -101,7 +101,7 @@ export function PatternFeature({
         </div>
         <div data-queued-reveal-children className="flex min-w-[280px] flex-1 flex-col gap-4 py-2">
           <span className="label">{label}</span>
-          <h2 className="h2 m-0">{title}</h2>
+          <h2 data-heading-reveal className="h2 m-0">{title}</h2>
           <p className="body-serif m-0">{text}</p>
           {children}
         </div>
@@ -210,7 +210,7 @@ export function VisitCta({
       </div>
       <div data-queued-reveal-children className="relative mx-auto flex max-w-[760px] flex-col items-center gap-6 px-[clamp(24px,5vw,48px)] py-[clamp(112px,12vw,176px)] text-center">
         <span className="label">{label}</span>
-        <h2 className="h2 m-0">{title}</h2>
+        <h2 data-heading-reveal className="h2 m-0">{title}</h2>
         <p className="m-0 max-w-[560px] font-serif text-[21px] leading-[1.55] text-body">{text}</p>
         <div className="mt-2 flex flex-wrap items-center justify-center gap-x-7 gap-y-3.5">
           <Link href={primary.href} className="pill">

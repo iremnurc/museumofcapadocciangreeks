@@ -14,7 +14,7 @@ export function HomeHero() {
             <span key={i}>{i}</span>
           ))}
         </div>
-        <h1 data-hero-title className="m-0 font-serif font-normal leading-[0.84] tracking-[-0.02em]" style={{ fontSize: "clamp(64px, 13.6vw, 196px)" }}>
+        <h1 data-hero-title data-heading-reveal className="m-0 font-serif font-normal leading-[0.84] tracking-[-0.02em]" style={{ fontSize: "clamp(64px, 13.6vw, 196px)" }}>
           Cappadocian <span className="block italic text-terracotta" style={{ marginLeft: "0.18em" }}>Greeks</span>
         </h1>
         <DraggableMarquee label="Objects from the collection (drag to spin)" className="-mx-[clamp(16px,3vw,40px)] w-auto!">

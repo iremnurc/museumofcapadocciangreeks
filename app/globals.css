@@ -129,5 +129,6 @@
 }
 
 /* Queued scroll reveal: items start hidden; components/queued-reveal.tsx brings them in */
-.reveal-ready [data-queued-reveal-item],
-.reveal-ready [data-queued-reveal-children] > * { visibility: hidden; opacity: 0; }
+.reveal-ready [data-queued-reveal-item]:not(:has([data-heading-reveal])),
+.reveal-ready [data-queued-reveal-children] > :not([data-heading-reveal]):not(:has([data-heading-reveal])) { visibility: hidden; opacity: 0; }
+.reveal-ready [data-heading-reveal] { visibility: hidden; }

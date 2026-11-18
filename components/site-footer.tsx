@@ -14,7 +14,10 @@ export function SiteFooter() {
             <path fill="#F1E8D8" d={ramsHornBand} transform="translate(5,0)" />
           </pattern>
         </defs>
-        <rect y="6" width="100%" height="34" fill="url(#ram-band)" />
+        {/* move the group, not just the rect, so the pattern grid starts at the top of the row */}
+        <g transform="translate(0,6)">
+          <rect width="100%" height="34" fill="url(#ram-band)" />
+        </g>
       </svg>
 
       <div className="gutter pt-16">

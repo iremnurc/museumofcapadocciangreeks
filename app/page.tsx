@@ -56,7 +56,7 @@ export default function HomePage() {
       </section>
 
       <section aria-label="About the museum" className="bg-madder text-sand">
-        <div className="gutter-wide mx-auto flex max-w-[1360px] flex-col gap-[clamp(80px,10vw,144px)] py-[clamp(120px,14vw,220px)]">
+        <div className="gutter flex flex-col gap-[clamp(80px,10vw,144px)] py-[clamp(120px,14vw,220px)]">
           <div className="flex flex-wrap items-start gap-x-12 gap-y-8">
             <div className="flex flex-[0_0_220px] flex-col gap-[18px] pt-3.5">
               <span className="text-xs tracking-[0.2em] text-terracotta">SINCE 1987</span>

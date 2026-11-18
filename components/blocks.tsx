@@ -129,7 +129,7 @@ export function EditorialBlock({
 }) {
   return (
     <section id={id} className={cn("text-sand", tone === "ink" ? "bg-ink" : "bg-madder")}>
-      <div className="gutter-wide mx-auto flex max-w-[1360px] flex-col gap-[clamp(64px,8vw,120px)] py-[clamp(112px,13vw,200px)]">
+      <div className="gutter flex flex-col gap-[clamp(64px,8vw,120px)] py-[clamp(112px,13vw,200px)]">
         <div className="flex flex-wrap items-start gap-x-12 gap-y-8">
           <div className="flex flex-[0_0_220px] flex-col gap-[18px] pt-3.5">
             <span className="text-xs uppercase tracking-[0.2em] text-terracotta">{label}</span>

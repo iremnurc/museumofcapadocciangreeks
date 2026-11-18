@@ -38,7 +38,7 @@ export default function ContactPage() {
       </section>
 
       <section aria-label="Send a message">
-        <div className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-start gap-x-20 gap-y-14 py-[clamp(96px,11vw,160px)]">
+        <div className="gutter flex flex-wrap items-start gap-x-20 gap-y-14 py-[clamp(96px,11vw,160px)]">
           <div data-queued-reveal-children className="flex min-w-0 flex-[1_1_360px] flex-col gap-5">
             <span className="label">Write to us</span>
             <h2 data-heading-reveal className="h2 m-0">

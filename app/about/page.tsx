@@ -43,7 +43,7 @@ export default function AboutPage() {
       />
 
       <section aria-label="From Gelveri to Nea Karvali">
-        <div className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-end justify-between gap-4 pt-[clamp(96px,11vw,168px)]">
+        <div className="gutter flex flex-wrap items-end justify-between gap-4 pt-[clamp(96px,11vw,168px)]">
           <h2 data-heading-reveal className="h2 m-0">
             From Gelveri <Accent>to Nea Karvali</Accent>
           </h2>

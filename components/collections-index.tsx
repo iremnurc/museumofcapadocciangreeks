@@ -59,7 +59,7 @@ export function CollectionsIndex() {
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-center gap-x-20 gap-y-14 py-[clamp(96px,11vw,168px)]">
+      <div className="gutter flex flex-wrap items-center gap-x-20 gap-y-14 py-[clamp(96px,11vw,168px)]">
         <div className="flex min-w-0 flex-[1_1_560px] flex-col gap-8">
           <span data-queued-reveal-item className="label">The collections</span>
           <ul data-queued-reveal-children role="list" className="m-0 flex list-none flex-col gap-1 p-0">

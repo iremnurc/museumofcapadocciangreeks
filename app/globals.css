@@ -35,7 +35,6 @@
 
 @layer components {
   .gutter { padding-inline: clamp(16px, 3vw, 40px); }
-  .gutter-wide { padding-inline: clamp(16px, 4vw, 64px); }
   .label { @apply text-xs uppercase tracking-[0.2em] text-madder; }
   .h1 { @apply font-serif font-normal tracking-[-0.02em]; font-size: clamp(64px, 11vw, 168px); line-height: 0.88; }
   .h2 { @apply font-serif font-normal text-[40px] sm:text-[56px] leading-[1.03]; }

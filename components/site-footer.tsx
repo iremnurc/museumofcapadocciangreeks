@@ -17,7 +17,7 @@ export function SiteFooter() {
         <rect width="100%" height="46" fill="url(#eye-band)" />
       </svg>
 
-      <div className="mx-auto max-w-[1344px] px-4 pt-16 sm:px-12">
+      <div className="gutter pt-16">
         <div data-queued-reveal-children className="flex flex-wrap gap-x-14 gap-y-10">
           <div className="flex min-w-0 flex-[1.4_1_260px] flex-col gap-2 leading-[1.6]">
             <span className="text-xs tracking-[0.16em] text-terracotta">VISIT</span>
@@ -63,7 +63,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1344px] px-4 pt-14 sm:px-12">
+      <div className="gutter pt-14">
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-rule-dark pt-[18px] text-xs text-ash">
           <span className="flex items-center gap-3.5">
             <Mark className="h-[22px] w-[42px] text-parchment" />© {new Date().getFullYear()} {site.fullName}
@@ -77,7 +77,7 @@ export function SiteFooter() {
       <Link
         href="/"
         aria-label={`${site.name}, home`}
-        className="mx-auto block max-w-[1344px] px-4 pt-6 sm:px-12"
+        className="gutter block pt-6"
         style={{ fontSize: "clamp(48px, 11.67vw, 168px)" }}
       >
         <div className="h-[1.09em] overflow-hidden">

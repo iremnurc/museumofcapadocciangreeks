@@ -7,14 +7,14 @@ export function SiteFooter() {
   const contact = site.contacts[0];
   return (
     <footer className="overflow-hidden bg-ink pb-[22px] text-[15px] text-sand">
-      {/* koçboynuzu (ram's horn) band: fertility, heroism and strength */}
+      {/* koçboynuzu (double ram's horn) band: fertility, heroism and strength */}
       <svg width="100%" height="46" aria-hidden shapeRendering="crispEdges" className="block bg-madder">
         <defs>
-          <pattern id="ram-band" width="28" height="15" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
+          <pattern id="ram-band" width="26" height="17" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
             <path fill="#F1E8D8" d={ramsHornBand} transform="translate(5,0)" />
           </pattern>
         </defs>
-        <rect y="8" width="100%" height="30" fill="url(#ram-band)" />
+        <rect y="6" width="100%" height="34" fill="url(#ram-band)" />
       </svg>
 
       <div className="gutter pt-16">

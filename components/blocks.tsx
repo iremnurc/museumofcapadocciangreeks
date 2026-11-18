@@ -16,6 +16,7 @@ export function PageHero({
   archival = true,
   position = "50% 50%",
   titleClassName,
+  tone = "ink",
 }: {
   info: string[];
   title: ReactNode;
@@ -24,11 +25,13 @@ export function PageHero({
   archival?: boolean;
   position?: string;
   titleClassName?: string;
+  /** background: ink (default) or madder red */
+  tone?: "ink" | "madder";
 }) {
   return (
-    <section aria-label="Introduction" className="bg-ink text-parchment">
+    <section aria-label="Introduction" className={cn("text-parchment", tone === "madder" ? "bg-madder" : "bg-ink")}>
       <div className="gutter flex flex-col gap-[clamp(40px,5vw,72px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(56px,7vw,104px)]">
-        <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px] text-mist">
+        <div className={cn("flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px]", tone === "madder" ? "text-blush" : "text-mist")}>
           {info.map((i) => (
             <span key={i}>{i}</span>
           ))}
@@ -55,8 +58,8 @@ export function PageHero({
   );
 }
 
-export function Accent({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
-  return <span className={cn("italic", dark ? "text-terracotta" : "text-madder")}>{children}</span>;
+export function Accent({ children, dark = false, onRed = false }: { children: ReactNode; dark?: boolean; onRed?: boolean }) {
+  return <span className={cn("italic", onRed ? "text-blush" : dark ? "text-terracotta" : "text-madder")}>{children}</span>;
 }
 
 /** Pixel pattern on the left half, photo across the edge, text on the right. */
@@ -114,20 +117,23 @@ export function EditorialBlock({
   statement,
   children,
   headingLevel = "h2",
+  tone = "madder",
 }: {
   id?: string;
   label: string;
   statement: ReactNode;
   children: ReactNode;
   headingLevel?: "h2" | "p";
+  /** background: madder red (default) or ink */
+  tone?: "madder" | "ink";
 }) {
   return (
-    <section id={id} className="bg-madder text-sand">
+    <section id={id} className={cn("text-sand", tone === "ink" ? "bg-ink" : "bg-madder")}>
       <div className="gutter-wide mx-auto flex max-w-[1360px] flex-col gap-[clamp(64px,8vw,120px)] py-[clamp(112px,13vw,200px)]">
         <div className="flex flex-wrap items-start gap-x-12 gap-y-8">
           <div className="flex flex-[0_0_220px] flex-col gap-[18px] pt-3.5">
             <span className="text-xs uppercase tracking-[0.2em] text-terracotta">{label}</span>
-            <Mark className="h-[22px] w-[42px] text-parchment" knot="#1A1612" />
+            <Mark className="h-[22px] w-[42px] text-parchment" knot={tone === "ink" ? "#D6503F" : "#1A1612"} />
           </div>
           <GradientWaveText
             as={headingLevel}

@@ -22,12 +22,13 @@ export default function EventsPage() {
         info={["Festival · symposiums · books", "Every summer at Akontisma", "Nea Karvali · Kavala"]}
         title={
           <>
-            What’s <Accent dark>on</Accent>
+            What’s <Accent onRed>on</Accent>
           </>
         }
         intro="Symposiums about the Cappadocian Greeks, book presentations and concerts, and every summer the Great Festival at Akontisma."
         image={images.aerial}
         archival={false}
+        tone="madder"
       />
 
       <section aria-label="Programme">
@@ -59,6 +60,7 @@ export default function EventsPage() {
 
       <EditorialBlock
         id="symposiums"
+        tone="ink"
         label="Throughout the year"
         statement={
           <>
@@ -66,9 +68,9 @@ export default function EventsPage() {
           </>
         }
       >
-        <ul role="list" className="m-0 list-none border-b border-rule-madder p-0">
+        <ul role="list" className="m-0 list-none border-b border-rule-dark p-0">
           {themes.map((t, i) => (
-            <li key={t.title} className="flex flex-wrap items-baseline gap-x-8 gap-y-2 border-t border-rule-madder py-[22px]">
+            <li key={t.title} className="flex flex-wrap items-baseline gap-x-8 gap-y-2 border-t border-rule-dark py-[22px]">
               <span className="w-10 text-[13px] text-terracotta">0{i + 1}</span>
               <span className="flex-[1_1_260px] font-serif text-[26px] text-parchment sm:text-[30px]">{t.title}</span>
               <span className="flex-[1_1_300px] text-[15px] leading-normal">{t.note}</span>

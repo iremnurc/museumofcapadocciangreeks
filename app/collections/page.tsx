@@ -15,12 +15,13 @@ export default function CollectionsPage() {
         info={["Three collections", "Costumes · church treasures · rugs", "Nea Karvali · Kavala"]}
         title={
           <>
-            The <Accent dark>collections</Accent>
+            The <Accent onRed>collections</Accent>
           </>
         }
         intro="Plenty of historical material about Greek culture in Cappadocia: costumes and jewellery, treasures from the churches, rugs, kilims and ceramics."
         image={images.display}
         position="62% 60%"
+        tone="madder"
       />
 
       <nav aria-label="Collections" className="border-b border-rule">
@@ -58,6 +59,7 @@ export default function CollectionsPage() {
 
       <EditorialBlock
         id="church"
+        tone="ink"
         label="02 · From the 17th century"
         statement={
           <>
@@ -69,7 +71,7 @@ export default function CollectionsPage() {
           <div className="arch relative aspect-[4/5] min-w-[240px] flex-[0_1_380px]">
             <Image src={images.censer.src} alt={images.censer.alt} fill sizes="380px" className="archival object-cover" />
           </div>
-          <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-5 border-t border-rule-madder pt-7">
+          <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-5 border-t border-rule-dark pt-7">
             <p className="m-0 font-serif text-[21px] leading-[1.6]">
               Rare ecclesiastical objects that show the presence of the Monastic Brotherhood of Gelveri and the Brotherhood of Saint John the Forerunner in Zincidere (Caesarea).
             </p>

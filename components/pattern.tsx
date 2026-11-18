@@ -39,36 +39,15 @@ function Tile({ motif, id }: { motif: Motif; id: string }) {
   );
 }
 
-/** A pixel-pattern field that fills its box, fades out to the right and softly at top and bottom. */
+/** A plain pixel-pattern field that fills its box: no fades, no masks. */
 export function PatternField({ motif, className }: { motif: Motif; className?: string }) {
-  const uid = useId().replace(/:/g, "");
-  const p = `p-${uid}`;
-  const g = `g-${uid}`;
-  const m = `m-${uid}`;
+  const p = `p-${useId().replace(/:/g, "")}`;
   return (
-    <svg
-      aria-hidden
-      className={className}
-      shapeRendering="crispEdges"
-      width="100%"
-      height="100%"
-      // fade in at the top and out at the bottom, so the field melts into the sections around it
-      style={{
-        maskImage: "linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%)",
-      }}
-    >
+    <svg aria-hidden className={className} shapeRendering="crispEdges" width="100%" height="100%">
       <defs>
         <Tile motif={motif} id={p} />
-        <linearGradient id={g} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0.5" stopColor="#fff" stopOpacity="1" />
-          <stop offset="0.92" stopColor="#fff" stopOpacity="0" />
-        </linearGradient>
-        <mask id={m} maskContentUnits="objectBoundingBox">
-          <rect width="1" height="1" fill={`url(#${g})`} />
-        </mask>
       </defs>
-      <rect width="100%" height="100%" fill={`url(#${p})`} mask={`url(#${m})`} />
+      <rect width="100%" height="100%" fill={`url(#${p})`} />
     </svg>
   );
 }

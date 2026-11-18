@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Accent, Blush, EditorialBlock, PageHero, VisitCta } from "@/components/blocks";
 import { QuoteScroll } from "@/components/quote-scroll";
-import { StepTimeline } from "@/components/step-timeline";
+import { DialTimeline } from "@/components/dial-timeline";
 import type { MediaItem } from "@/components/scaling-media";
 import { images } from "@/content/site";
 
@@ -42,17 +42,15 @@ export default function AboutPage() {
         position="30% 55%"
       />
 
-      <section aria-label="Timeline">
-        <div className="gutter-wide mx-auto flex max-w-[1360px] flex-col gap-10 py-[clamp(96px,11vw,168px)]">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 data-heading-reveal className="h2 m-0">
-              From Gelveri <Accent>to Nea Karvali</Accent>
-            </h2>
-            <span className="label">Four dates</span>
-          </div>
-          <StepTimeline steps={dates} />
+      <section aria-label="From Gelveri to Nea Karvali">
+        <div className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-end justify-between gap-4 pt-[clamp(96px,11vw,168px)]">
+          <h2 data-heading-reveal className="h2 m-0">
+            From Gelveri <Accent>to Nea Karvali</Accent>
+          </h2>
+          <span className="label">Four dates</span>
         </div>
       </section>
+      <DialTimeline steps={dates} />
 
       <EditorialBlock
         label="Our story"

@@ -16,16 +16,18 @@ import { images, nav, site } from "@/content/site";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  // Collections and Events have red heroes, so the bar turns red with them
+  const red = ["/collections", "/events"].some((p) => pathname.startsWith(p));
   const close = () => setOpen(false);
 
   return (
-    <header className="relative z-10 border-b border-rule-dark bg-ink text-parchment">
+    <header className={`relative z-10 border-b text-parchment ${red ? "border-rule-madder bg-madder" : "border-rule-dark bg-ink"}`}>
       <div className="gutter flex items-center justify-between gap-4 py-[18px]">
         <Link href="/" className="text-parchment hover:text-parchment" aria-label={`${site.name}, home`}>
           <Lockup />
         </Link>
         <div className="flex items-center gap-2.5">
-          <Link href="/contact#visit" className="pill hidden sm:inline-flex">
+          <Link href="/contact#visit" className={`pill hidden sm:inline-flex ${red ? "bg-ink! hover:bg-parchment! hover:text-ink!" : ""}`}>
             Visit us
           </Link>
           <Dialog.Root open={open} onOpenChange={setOpen}>

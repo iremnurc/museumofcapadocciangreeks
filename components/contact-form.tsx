@@ -1,7 +1,7 @@
 "use client";
 
 import * as Select from "@radix-ui/react-select";
-import { useActionState } from "react";
+import { useActionState, type ReactNode } from "react";
 import { sendMessage, type FormState } from "@/app/contact/actions";
 
 // Inline fields sit in the sentence: serif, underlined, turning red when active.
@@ -15,75 +15,86 @@ const topics = [
   { value: "Something else", label: "something else" },
 ];
 
-/** Contact form written as a short letter: the visitor fills in the blanks. */
-export function ContactForm() {
+/**
+ * Contact section body: the intro on the left, the form written as a short letter on the right.
+ * Once sent, both are replaced by one thank-you note in the intro's place.
+ */
+export function ContactForm({ intro }: { intro: ReactNode }) {
   const [state, action, pending] = useActionState<FormState, FormData>(sendMessage, { status: "idle" });
+  const row = "gutter flex flex-wrap items-start gap-x-20 gap-y-14 py-[clamp(96px,11vw,160px)]";
 
   if (state.status === "sent") {
-    const first = state.name?.split(/\s+/)[0];
     const about = topics.find((t) => t.value === state.topic)?.label;
+    // a different key remounts the column: the heading-reveal split replaced React's text nodes
     return (
-      <div role="status" className="sent-note flex flex-col gap-6">
-        <span className="label">Message sent</span>
-        <p className="h2 m-0 text-ink">
-          Thank <span className="italic text-madder">you</span>
-          {first ? `, ${first}` : ""}.
-        </p>
-        <span aria-hidden className="block h-px w-16 bg-madder/60" />
-        <p className="body-serif m-0 max-w-[34ch]">
-          Your note{about ? ` about ${about}` : ""} is with us. We&apos;ll write back
-          {state.email ? (
-            <>
-              {" "}to <span className="italic text-ink">{state.email}</span>
-            </>
-          ) : null}{" "}
-          as soon as we can.
-        </p>
+      <div key="sent" className={row}>
+        <div role="status" className="sent-note flex min-w-0 flex-[1_1_360px] flex-col gap-5">
+          <span className="label">Message sent</span>
+          <h2 className="h2 m-0">
+            Thank <span className="italic text-madder">you</span>
+          </h2>
+          <p className="m-0 max-w-[420px] font-serif text-[21px] leading-normal text-body">
+            Your note{about ? ` about ${about}` : ""} is with us. We&apos;ll write back
+            {state.email ? (
+              <>
+                {" "}to <span className="italic text-ink">{state.email}</span>
+              </>
+            ) : null}{" "}
+            as soon as we can.
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <form action={action} className="flex flex-col gap-8">
-      <p className="m-0 font-serif text-[clamp(24px,2.4vw,34px)] leading-[1.9] text-ink">
-        Hello, my name is
-        <input name="name" type="text" required autoComplete="name" aria-label="Your name" placeholder="your name" size={14} className={inline} />{" "}
-        and you can reach me at
-        <span className="whitespace-nowrap">
-          <input name="email" type="email" required autoComplete="email" aria-label="Your email" placeholder="your email" size={18} className={inline} />.
-        </span>{" "}
-        I&apos;m writing about
-        <span className="whitespace-nowrap">
-          <TopicSelect />.
-        </span>
-      </p>
-      <label className="flex flex-col gap-2">
-        <span className="font-serif text-[clamp(24px,2.4vw,34px)] leading-tight text-ink">My message:</span>
-        <textarea
-          name="message"
-          rows={4}
-          required
-          placeholder="Write here…"
-          className="w-full resize-none border-0 bg-transparent font-serif text-[21px] leading-[2] italic text-body placeholder:text-stone/70 focus:outline-none"
-          // ruled lines, like writing paper
-          style={{
-            backgroundImage: "linear-gradient(to bottom, transparent calc(2em - 1px), rgb(106 98 88 / 0.35) calc(2em - 1px))",
-            backgroundSize: "100% 2em",
-          }}
-        />
-      </label>
-      <input name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-      {state.status === "error" ? (
-        <p role="alert" className="m-0 text-sm text-madder">
-          {state.message}
-        </p>
-      ) : null}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-        <button type="submit" disabled={pending} className="pill cursor-pointer border-0 px-8 py-4 text-[15px] disabled:opacity-60">
-          {pending ? "Sending…" : "Send message"}
-        </button>
+    <div key="form" className={row}>
+      <div data-queued-reveal-children className="flex min-w-0 flex-[1_1_360px] flex-col gap-5">
+        {intro}
       </div>
-    </form>
+      <div data-queued-reveal-item className="min-w-0 flex-[1.3_1_480px]">
+      <form action={action} className="flex flex-col gap-8">
+        <p className="m-0 font-serif text-[clamp(24px,2.4vw,34px)] leading-[1.9] text-ink">
+          Hello, my name is
+          <input name="name" type="text" required autoComplete="name" aria-label="Your name" placeholder="your name" size={14} className={inline} />{" "}
+          and you can reach me at
+          <span className="whitespace-nowrap">
+            <input name="email" type="email" required autoComplete="email" aria-label="Your email" placeholder="your email" size={18} className={inline} />.
+          </span>{" "}
+          I&apos;m writing about
+          <span className="whitespace-nowrap">
+            <TopicSelect />.
+          </span>
+        </p>
+        <label className="flex flex-col gap-2">
+          <span className="font-serif text-[clamp(24px,2.4vw,34px)] leading-tight text-ink">My message:</span>
+          <textarea
+            name="message"
+            rows={4}
+            required
+            placeholder="Write here…"
+            className="w-full resize-none border-0 bg-transparent font-serif text-[21px] leading-[2] italic text-body placeholder:text-stone/70 focus:outline-none"
+            // ruled lines, like writing paper
+            style={{
+              backgroundImage: "linear-gradient(to bottom, transparent calc(2em - 1px), rgb(106 98 88 / 0.35) calc(2em - 1px))",
+              backgroundSize: "100% 2em",
+            }}
+          />
+        </label>
+        <input name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+        {state.status === "error" ? (
+          <p role="alert" className="m-0 text-sm text-madder">
+            {state.message}
+          </p>
+        ) : null}
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <button type="submit" disabled={pending} className="pill cursor-pointer border-0 px-8 py-4 text-[15px] disabled:opacity-60">
+            {pending ? "Sending…" : "Send message"}
+          </button>
+        </div>
+      </form>
+      </div>
+    </div>
   );
 }
 

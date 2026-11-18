@@ -10,9 +10,9 @@ type Spec = { a: string; b: string; w: number; h: number; pad: [number, number];
 // Motifs laid out in half-drop rows: every other column is shifted down by half a row.
 const halfDrop: Partial<Record<Motif, Spec>> = {
   elibelinde: { a: elibelindeA, b: elibelindeB, w: 27, h: 29, pad: [14, 10], scale: 2 },
-  pitrak: { a: pitrakA, b: pitrakB, w: 23, h: 23, pad: [9, 9], scale: 3 },
+  pitrak: { a: pitrakA, b: pitrakB, w: 23, h: 23, pad: [10, 10], scale: 2 },
   // yıldız (kilim star), traced from the reference sheet
-  star: { a: kilimStarA, b: kilimStarB, w: 21, h: 17, pad: [11, 9], scale: 3 },
+  star: { a: kilimStarA, b: kilimStarB, w: 21, h: 17, pad: [12, 10], scale: 2 },
 };
 
 function Tile({ motif, id }: { motif: Motif; id: string }) {
@@ -59,16 +59,16 @@ function Tile({ motif, id }: { motif: Motif; id: string }) {
 // Size of one repeat on screen, in px.
 const tileSize: Record<Motif, { w: number; h: number }> = {
   lozenge: { w: 16 * 6, h: 16 * 6 },
-  star: { w: (21 + 11) * 2 * 3, h: (17 + 9) * 3 },
+  star: { w: (21 + 12) * 2 * 2, h: (17 + 10) * 2 },
   ram: { w: 48 * 3, h: 52 * 3 },
   elibelinde: { w: (27 + 14) * 2 * 2, h: (29 + 10) * 2 },
-  pitrak: { w: (23 + 9) * 2 * 3, h: (23 + 9) * 3 },
+  pitrak: { w: (23 + 10) * 2 * 2, h: (23 + 10) * 2 },
 };
 
 /**
- * Pixel-pattern field that fills its box with whole repeats only, centred, so it starts
- * and ends the same way at the top and bottom (and left and right). It fades out from
- * the middle towards the right edge.
+ * Pixel-pattern field that fills its whole box. The repeat grid is centred in the box, so
+ * whatever is cut off at the top matches the bottom, and the left matches the right.
+ * It fades out over its last 40%, ending at the right edge (the section's centre).
  */
 export function PatternField({ motif, className }: { motif: Motif; className?: string }) {
   const uid = useId().replace(/:/g, "");
@@ -84,12 +84,9 @@ export function PatternField({ motif, className }: { motif: Motif; className?: s
   }, []);
 
   const t = tileSize[motif];
-  const cols = Math.floor(box.w / t.w);
-  const rows = Math.floor(box.h / t.h);
-  const w = cols * t.w;
-  const h = rows * t.h;
-  const x = Math.round((box.w - w) / 2);
-  const y = Math.round((box.h - h) / 2);
+  // shift the grid by half the leftover so the cut edges are the same on opposite sides
+  const x = Math.round((box.w % t.w) / 2);
+  const y = Math.round((box.h % t.h) / 2);
   const p = `p-${uid}`;
   const g = `g-${uid}`;
   const m = `m-${uid}`;
@@ -99,17 +96,18 @@ export function PatternField({ motif, className }: { motif: Motif; className?: s
       <defs>
         <Tile motif={motif} id={p} />
         <linearGradient id={g} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0.5" stopColor="#fff" stopOpacity="1" />
-          <stop offset="0.92" stopColor="#fff" stopOpacity="0" />
+          {/* fully visible for the first 60%, then fades out exactly at the section's centre */}
+          <stop offset="0.6" stopColor="#fff" stopOpacity="1" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
         </linearGradient>
         <mask id={m} maskContentUnits="objectBoundingBox">
           <rect width="1" height="1" fill={`url(#${g})`} />
         </mask>
       </defs>
-      {cols > 0 && rows > 0 ? (
-        // the group is moved so the pattern's own grid starts exactly at the block's corner
-        <g transform={`translate(${x},${y})`} mask={`url(#${m})`}>
-          <rect width={w} height={h} fill={`url(#${p})`} />
+      {box.w > 0 ? (
+        // the group moves the pattern grid; the rect still covers the whole box
+        <g transform={`translate(${x},${y})`}>
+          <rect x={-x} y={-y} width={box.w} height={box.h} fill={`url(#${p})`} mask={`url(#${m})`} />
         </g>
       ) : null}
     </svg>

@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        info={["Visit & contact", "8 km from Kavala", "Mon–Sat"]}
+        info={["Visit & contact", "8 km from Kavala", "Since 1987"]}
         title={
           <>
             Contact <Accent dark>us</Accent>

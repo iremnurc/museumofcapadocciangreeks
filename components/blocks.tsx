@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { GradientWaveText } from "@/components/gradient-wave-text";
 import { Mark } from "@/components/mark";
+import { Parallax } from "@/components/parallax";
 import { PatternField, type Motif } from "@/components/pattern";
 import type { Img } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -95,15 +96,18 @@ export function PatternFeature({
       {/* three columns on large screens: empty | photo, centred in the section | text */}
       <div className="gutter relative flex flex-col gap-10 py-[clamp(80px,10vw,140px)] lg:grid lg:grid-cols-[1fr_minmax(0,480px)_1fr] lg:items-end lg:gap-12">
         <div aria-hidden className="hidden lg:block" />
-        <div data-queued-reveal-item className="relative aspect-[4/5] w-full max-w-[480px] min-w-0">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="(min-width: 640px) 480px, 100vw"
-            className={cn("object-cover", archival && "archival")}
-            style={{ objectPosition: position }}
-          />
+        <div data-queued-reveal-item className="relative aspect-[4/5] w-full max-w-[480px] min-w-0 overflow-hidden">
+          {/* the picture drifts gently inside its frame as the section scrolls past */}
+          <Parallax>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 640px) 480px, 100vw"
+              className={cn("object-cover", archival && "archival")}
+              style={{ objectPosition: position }}
+            />
+          </Parallax>
         </div>
         <div data-queued-reveal-children className="flex min-w-0 flex-col gap-4 py-2">
           <span className="label">{label}</span>

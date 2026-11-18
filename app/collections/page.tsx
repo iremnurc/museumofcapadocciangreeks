@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Parallax } from "@/components/parallax";
 import { Accent, Blush, EditorialBlock, PageHero, PatternFeature, VisitCta } from "@/components/blocks";
 import { images, site } from "@/content/site";
 
@@ -48,10 +49,14 @@ export default function CollectionsPage() {
           </div>
           <div data-queued-reveal-item className="relative mx-auto min-w-[280px] flex-[0_1_520px] pb-14 pl-14">
             <div className="arch relative aspect-[4/5] bg-clay">
-              <Image src={images.dress.src} alt={images.dress.alt} fill sizes="(min-width: 768px) 460px, 90vw" className="object-cover object-[50%_30%]" />
+              <Parallax>
+                <Image src={images.dress.src} alt={images.dress.alt} fill sizes="(min-width: 768px) 460px, 90vw" className="object-cover object-[50%_30%]" />
+              </Parallax>
             </div>
             <div className="absolute bottom-0 left-0 aspect-square w-[42%] overflow-hidden rounded-full border-8 border-parchment">
-              <Image src={images.earrings.src} alt={images.earrings.alt} fill sizes="220px" className="object-cover" />
+              <Parallax travel={24}>
+                <Image src={images.earrings.src} alt={images.earrings.alt} fill sizes="220px" className="object-cover" />
+              </Parallax>
             </div>
           </div>
         </div>
@@ -69,7 +74,9 @@ export default function CollectionsPage() {
       >
         <div className="flex flex-wrap items-end gap-12">
           <div className="arch relative aspect-[4/5] min-w-[240px] flex-[0_1_380px]">
-            <Image src={images.censer.src} alt={images.censer.alt} fill sizes="380px" className="archival object-cover" />
+            <Parallax>
+              <Image src={images.censer.src} alt={images.censer.alt} fill sizes="380px" className="archival object-cover" />
+            </Parallax>
           </div>
           <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-5 border-t border-rule-dark pt-7">
             <p className="m-0 font-serif text-[21px] leading-[1.6]">
@@ -95,10 +102,14 @@ export default function CollectionsPage() {
       >
         <div className="mt-3 flex gap-4">
           <div className="arch relative aspect-[3/4] w-[120px]">
-            <Image src={images.lionRug.src} alt={images.lionRug.alt} fill sizes="120px" className="object-cover" />
+            <Parallax travel={12}>
+              <Image src={images.lionRug.src} alt={images.lionRug.alt} fill sizes="120px" className="object-cover" />
+            </Parallax>
           </div>
           <div className="arch relative flex aspect-[3/4] w-[120px] items-end justify-center bg-clay">
-            <Image src={images.jug.src} alt={images.jug.alt} fill sizes="120px" className="object-contain p-2 mix-blend-multiply" />
+            <Parallax travel={12}>
+              <Image src={images.jug.src} alt={images.jug.alt} fill sizes="120px" className="object-contain p-2 mix-blend-multiply" />
+            </Parallax>
           </div>
         </div>
       </PatternFeature>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Parallax } from "@/components/parallax";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { home } from "@/content/home";
@@ -104,17 +105,19 @@ export function CollectionsIndex() {
         </div>
         <figure data-queued-reveal-item className="m-0 mx-auto flex min-w-[260px] flex-[0_1_460px] flex-col gap-3">
           <div className="arch relative aspect-[4/5] bg-clay">
-            {items.map((c, i) => (
-              <Image
-                key={c.id}
-                src={c.img.src}
-                alt={i === index ? c.img.alt : ""}
-                fill
-                sizes="(min-width: 768px) 460px, 100vw"
-                className={`object-cover transition-opacity duration-700 ${i === index ? "opacity-100" : "opacity-0"}`}
-                style={{ objectPosition: c.pos }}
-              />
-            ))}
+            <Parallax>
+              {items.map((c, i) => (
+                <Image
+                  key={c.id}
+                  src={c.img.src}
+                  alt={i === index ? c.img.alt : ""}
+                  fill
+                  sizes="(min-width: 768px) 460px, 100vw"
+                  className={`object-cover transition-opacity duration-700 ${i === index ? "opacity-100" : "opacity-0"}`}
+                  style={{ objectPosition: c.pos }}
+                />
+              ))}
+            </Parallax>
           </div>
           {/* progress: one segment per collection, the current one fills while playing */}
           <div aria-hidden className="flex gap-2">

@@ -47,15 +47,17 @@ export function PageHero({
             {intro}
           </p>
           <div className="arch relative aspect-[2/1] min-w-0 flex-[2_1_520px] lg:ml-auto lg:w-[min(200cqh,100cqw-440px)] lg:flex-none">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 60vw, 100vw"
-              className={cn("object-cover", archival && "archival")}
-              style={{ objectPosition: position }}
-            />
+            <Parallax>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className={cn("object-cover", archival && "archival")}
+                style={{ objectPosition: position }}
+              />
+            </Parallax>
           </div>
         </div>
       </div>
@@ -213,10 +215,14 @@ export function VisitCta({
   return (
     <section aria-label={label} className="relative overflow-hidden bg-parchment">
       <div className="arch absolute bottom-0 left-[clamp(-120px,-4vw,-40px)] hidden aspect-[3/4] w-[clamp(180px,22vw,320px)] sm:block">
-        <Image src={left.src} alt="" fill sizes="320px" className="archival object-cover" />
+        <Parallax>
+          <Image src={left.src} alt="" fill sizes="320px" className="archival object-cover" />
+        </Parallax>
       </div>
       <div className="arch absolute top-[clamp(48px,6vw,96px)] right-[clamp(-120px,-4vw,-40px)] hidden aspect-[3/4] w-[clamp(160px,18vw,260px)] sm:block">
-        <Image src={right.src} alt="" fill sizes="260px" className="object-cover" />
+        <Parallax>
+          <Image src={right.src} alt="" fill sizes="260px" className="object-cover" />
+        </Parallax>
       </div>
       <div data-queued-reveal-children className="relative mx-auto flex max-w-[760px] flex-col items-center gap-6 px-[clamp(24px,5vw,48px)] py-[clamp(112px,12vw,176px)] text-center">
         <span className="label">{label}</span>

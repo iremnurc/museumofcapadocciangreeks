@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
  * drifts by `travel` px. The inner layer is oversized by `travel` on each side so no edge
  * ever shows. Off for reduced motion.
  */
-export function Parallax({ children, travel = 28 }: { children: ReactNode; travel?: number }) {
+export function Parallax({ children, travel = 48 }: { children: ReactNode; travel?: number }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

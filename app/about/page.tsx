@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Parallax } from "@/components/parallax";
 import { Accent, Blush, EditorialBlock, PageHero, VisitCta } from "@/components/blocks";
 import { QuoteScroll } from "@/components/quote-scroll";
 import { DialTimeline } from "@/components/dial-timeline";
@@ -61,7 +62,9 @@ export default function AboutPage() {
       >
         <div className="flex flex-wrap items-end gap-12">
           <div className="arch relative aspect-[4/5] min-w-[240px] flex-[0_1_380px]">
-            <Image src={images.display.src} alt={images.display.alt} fill sizes="380px" className="object-cover object-[70%_55%]" />
+            <Parallax>
+              <Image src={images.display.src} alt={images.display.alt} fill sizes="380px" className="object-cover object-[70%_55%]" />
+            </Parallax>
           </div>
           <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-5 border-t border-rule-madder pt-7 font-serif text-[21px] leading-[1.6]">
             <p className="m-0">

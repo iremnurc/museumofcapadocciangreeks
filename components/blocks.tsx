@@ -30,18 +30,22 @@ export function PageHero({
 }) {
   return (
     <section aria-label="Introduction" className={cn("text-parchment", tone === "madder" ? "bg-madder" : "bg-ink")}>
-      <div data-queued-reveal-children className="gutter flex flex-col gap-[clamp(40px,5vw,72px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(56px,7vw,104px)]">
+      {/* On desktop the hero fits the screen under the 83px header; the arch takes whatever height is left. */}
+      <div
+        data-queued-reveal-children
+        className="gutter flex flex-col gap-[clamp(40px,5vw,72px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(56px,7vw,104px)] lg:h-[calc(100svh-83px)] lg:min-h-[600px] lg:gap-[clamp(32px,4vh,56px)] lg:pb-[clamp(40px,6vh,80px)]"
+      >
         <div className={cn("flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px]", tone === "madder" ? "text-blush" : "text-mist")}>
           {info.map((i) => (
             <span key={i}>{i}</span>
           ))}
         </div>
         <h1 data-heading-reveal className={cn("h1 m-0 text-parchment", titleClassName)}>{title}</h1>
-        <div className="flex flex-wrap items-end gap-x-[clamp(40px,6vw,96px)] gap-y-8">
+        <div className="flex flex-wrap items-end gap-x-[clamp(40px,6vw,96px)] gap-y-8 lg:min-h-0 lg:flex-1 lg:flex-nowrap lg:[container-type:size]">
           <p className="m-0 min-w-0 max-w-[560px] flex-[1_1_360px] font-serif text-[clamp(20px,1.7vw,24px)] leading-normal text-sand">
             {intro}
           </p>
-          <div className="arch relative aspect-[2/1] min-w-0 flex-[2_1_520px]">
+          <div className="arch relative aspect-[2/1] min-w-0 flex-[2_1_520px] lg:ml-auto lg:w-[min(200cqh,100cqw-440px)] lg:flex-none">
             <Image
               src={image.src}
               alt={image.alt}

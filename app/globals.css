@@ -135,3 +135,11 @@
 /* Dial timeline (About): text for each date eases in */
 .dial-text { animation: dial-text 0.7s cubic-bezier(.2,.7,.2,1) both 0.15s; }
 @keyframes dial-text { from { opacity: 0; transform: translateY(0.6em); } to { opacity: 1; transform: none; } }
+
+/* Contact: the thank-you note settles in line by line */
+@keyframes sent-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.sent-note > * { animation: sent-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.sent-note > :nth-child(2) { animation-delay: 0.08s; }
+.sent-note > :nth-child(3) { animation-delay: 0.16s; }
+.sent-note > :nth-child(4) { animation-delay: 0.24s; }
+@media (prefers-reduced-motion: reduce) { .sent-note > * { animation: none; } }

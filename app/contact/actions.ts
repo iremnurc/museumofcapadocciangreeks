@@ -1,6 +1,13 @@
 "use server";
 
-export type FormState = { status: "idle" | "sent" | "error"; message?: string };
+export type FormState = {
+  status: "idle" | "sent" | "error";
+  message?: string;
+  // echoed back so the thank-you note can be addressed to the sender
+  name?: string;
+  email?: string;
+  topic?: string;
+};
 
 const topics = ["Planning a visit", "Group or school visit", "Academic enquiry", "Something else"];
 
@@ -24,7 +31,7 @@ export async function sendMessage(_prev: FormState, data: FormData): Promise<For
   const to = process.env.CONTACT_TO;
   if (!key || !to) {
     console.info("[contact] (not sent: RESEND_API_KEY/CONTACT_TO missing)", { name, email, topic });
-    return { status: "sent" };
+    return { status: "sent", name, email, topic };
   }
 
   const res = await fetch("https://api.resend.com/emails", {
@@ -38,5 +45,5 @@ export async function sendMessage(_prev: FormState, data: FormData): Promise<For
       text: `${message}\n\n— ${name} <${email}>`,
     }),
   });
-  return res.ok ? { status: "sent" } : { status: "error", message: "Sorry, the message could not be sent. Please email us instead." };
+  return res.ok ? { status: "sent", name, email, topic } : { status: "error", message: "Sorry, the message could not be sent. Please email us instead." };
 }

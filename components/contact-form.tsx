@@ -20,10 +20,24 @@ export function ContactForm() {
   const [state, action, pending] = useActionState<FormState, FormData>(sendMessage, { status: "idle" });
 
   if (state.status === "sent") {
+    const first = state.name?.split(/\s+/)[0];
+    const about = topics.find((t) => t.value === state.topic)?.label;
     return (
-      <div role="status" className="flex flex-col gap-4">
-        <p className="m-0 font-serif text-[clamp(24px,2.4vw,34px)] leading-[1.4] text-ink">
-          Thank <span className="italic text-madder">you</span>. Your message has been sent, and we&apos;ll reply by email as soon as we can.
+      <div role="status" className="sent-note flex flex-col gap-6">
+        <span className="label">Message sent</span>
+        <p className="h2 m-0 text-ink">
+          Thank <span className="italic text-madder">you</span>
+          {first ? `, ${first}` : ""}.
+        </p>
+        <span aria-hidden className="block h-px w-16 bg-madder/60" />
+        <p className="body-serif m-0 max-w-[34ch]">
+          Your note{about ? ` about ${about}` : ""} is with us. We&apos;ll write back
+          {state.email ? (
+            <>
+              {" "}to <span className="italic text-ink">{state.email}</span>
+            </>
+          ) : null}{" "}
+          as soon as we can.
         </p>
       </div>
     );

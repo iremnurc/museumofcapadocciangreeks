@@ -39,14 +39,25 @@ function Tile({ motif, id }: { motif: Motif; id: string }) {
   );
 }
 
-/** A pixel-pattern field that fills its box and fades out to the right. */
+/** A pixel-pattern field that fills its box, fades out to the right and softly at top and bottom. */
 export function PatternField({ motif, className }: { motif: Motif; className?: string }) {
   const uid = useId().replace(/:/g, "");
   const p = `p-${uid}`;
   const g = `g-${uid}`;
   const m = `m-${uid}`;
   return (
-    <svg aria-hidden className={className} shapeRendering="crispEdges" width="100%" height="100%">
+    <svg
+      aria-hidden
+      className={className}
+      shapeRendering="crispEdges"
+      width="100%"
+      height="100%"
+      // fade in at the top and out at the bottom, so the field melts into the sections around it
+      style={{
+        maskImage: "linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%)",
+      }}
+    >
       <defs>
         <Tile motif={motif} id={p} />
         <linearGradient id={g} x1="0" y1="0" x2="1" y2="0">

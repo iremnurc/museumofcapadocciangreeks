@@ -47,7 +47,6 @@ export default function AboutPage() {
           <h2 data-heading-reveal className="h2 m-0">
             From Gelveri <Accent>to Nea Karvali</Accent>
           </h2>
-          <span className="label">Four dates</span>
         </div>
       </section>
       <DialTimeline steps={dates} />

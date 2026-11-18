@@ -1,5 +1,6 @@
 "use client";
 
+import * as Select from "@radix-ui/react-select";
 import { useActionState } from "react";
 import { sendMessage, type FormState } from "@/app/contact/actions";
 import { eyeA, eyeB } from "@/lib/pixels";
@@ -47,18 +48,8 @@ export function ContactForm() {
           <input name="email" type="email" required autoComplete="email" aria-label="Your email" placeholder="your email" size={18} className={inline} />.
         </span>{" "}
         I&apos;m writing about
-        <span className="relative inline-block whitespace-nowrap">
-          <select name="topic" aria-label="What you are writing about" defaultValue={topics[0].value} className={`${inline} cursor-pointer appearance-none pr-6`}>
-            {topics.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-          <span aria-hidden className="pointer-events-none absolute right-1 bottom-[0.45em] text-[0.45em] text-madder">
-            ▼
-          </span>
-          .
+        <span className="whitespace-nowrap">
+          <TopicSelect />.
         </span>
       </p>
       <label className="flex flex-col gap-2">
@@ -88,5 +79,43 @@ export function ContactForm() {
         </button>
       </div>
     </form>
+  );
+}
+
+/**
+ * The topic blank: a small custom menu (Radix Select) so it matches the page in every
+ * browser. Safari's native list would copy the sentence's 34px size in the system font.
+ * Radix renders a hidden native <select name="topic"> so the form still submits it.
+ */
+function TopicSelect() {
+  return (
+    <Select.Root name="topic" defaultValue={topics[0].value}>
+      <Select.Trigger
+        aria-label="What you are writing about"
+        className={`${inline} inline-flex cursor-pointer items-baseline gap-2 text-left data-[state=open]:border-madder`}
+      >
+        <Select.Value />
+        <Select.Icon className="text-[0.45em] text-madder">▼</Select.Icon>
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Content
+          position="popper"
+          sideOffset={8}
+          className="z-50 min-w-[var(--radix-select-trigger-width)] overflow-hidden border border-rule bg-paper py-2 shadow-[0_12px_32px_rgb(26_22_18/0.14)]"
+        >
+          <Select.Viewport>
+            {topics.map((t) => (
+              <Select.Item
+                key={t.value}
+                value={t.value}
+                className="relative cursor-pointer px-5 py-2 font-serif text-[20px] italic text-ink outline-none select-none data-[highlighted]:bg-parchment data-[highlighted]:text-madder data-[state=checked]:text-madder"
+              >
+                <Select.ItemText>{t.label}</Select.ItemText>
+              </Select.Item>
+            ))}
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   );
 }

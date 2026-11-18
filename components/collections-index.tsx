@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { home } from "@/content/home";
 
 const INTERVAL = 5000; // ms per collection when playing on its own
@@ -12,6 +12,29 @@ export function CollectionsIndex() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reduced, setReduced] = useState(false);
+  // autoplay waits until the section has scrolled in and its reveal has played
+  const [started, setStarted] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    let timer: number | undefined;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          timer = window.setTimeout(() => setStarted(true), 1600);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   useEffect(() => {
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -20,15 +43,16 @@ export function CollectionsIndex() {
   // Autoplay: move to the next collection every few seconds unless the visitor is
   // hovering or focused inside the section, or prefers reduced motion.
   useEffect(() => {
-    if (paused || reduced) return;
+    if (!started || paused || reduced) return;
     const t = setTimeout(() => setIndex((i) => (i + 1) % items.length), INTERVAL);
     return () => clearTimeout(t);
-  }, [index, paused, reduced, items.length]);
+  }, [index, paused, reduced, started, items.length]);
 
   const current = items[index];
 
   return (
     <section
+      ref={sectionRef}
       aria-label="The collections"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -37,8 +61,8 @@ export function CollectionsIndex() {
     >
       <div className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-center gap-x-20 gap-y-14 py-[clamp(96px,11vw,168px)]">
         <div className="flex min-w-0 flex-[1_1_560px] flex-col gap-8">
-          <span className="label">The collections</span>
-          <ul role="list" className="m-0 flex list-none flex-col gap-1 p-0">
+          <span data-queued-reveal-item className="label">The collections</span>
+          <ul data-queued-reveal-children role="list" className="m-0 flex list-none flex-col gap-1 p-0">
             {items.map((c, i) => {
               const on = i === index;
               return (
@@ -61,7 +85,7 @@ export function CollectionsIndex() {
             })}
           </ul>
           {/* All three texts share one grid cell, so the block always has the height of the longest. */}
-          <div className="grid sm:ml-[46px]">
+          <div data-queued-reveal-item className="grid sm:ml-[46px]">
             {items.map((c, i) => (
               <p
                 key={c.id}
@@ -74,11 +98,11 @@ export function CollectionsIndex() {
               </p>
             ))}
           </div>
-          <Link href={`/collections#${current.id}`} className="pill self-start sm:ml-[46px]">
+          <Link href={`/collections#${current.id}`} data-queued-reveal-item className="pill self-start sm:ml-[46px]">
             Explore the collections
           </Link>
         </div>
-        <figure className="m-0 mx-auto flex min-w-[260px] flex-[0_1_460px] flex-col gap-3">
+        <figure data-queued-reveal-item className="m-0 mx-auto flex min-w-[260px] flex-[0_1_460px] flex-col gap-3">
           <div className="arch relative aspect-[4/5] bg-clay">
             {items.map((c, i) => (
               <Image
@@ -96,8 +120,8 @@ export function CollectionsIndex() {
           <div aria-hidden className="flex gap-2">
             {items.map((c, i) => (
               <span key={c.id} className="relative block h-0.5 flex-1 overflow-hidden bg-rule">
-                {i < index || (i === index && (paused || reduced)) ? <span className="absolute inset-0 bg-madder" /> : null}
-                {i === index && !paused && !reduced ? (
+                {i < index || (i === index && started && (paused || reduced)) ? <span className="absolute inset-0 bg-madder" /> : null}
+                {i === index && started && !paused && !reduced ? (
                   <span key={`p${index}`} className="absolute inset-0 origin-left bg-madder" style={{ animation: `grow ${INTERVAL}ms linear forwards` }} />
                 ) : null}
               </span>

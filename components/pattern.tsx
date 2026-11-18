@@ -1,11 +1,39 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { lozenge, ramA, ramB, starA, starB } from "@/lib/pixels";
+import { elibelindeA, elibelindeB, lozenge, pitrakA, pitrakB, ramA, ramB, starA, starB } from "@/lib/pixels";
 
-export type Motif = "lozenge" | "star" | "ram";
+export type Motif = "lozenge" | "star" | "ram" | "elibelinde" | "pitrak";
+
+type Spec = { a: string; b: string; w: number; h: number; pad: [number, number]; scale: number };
+
+// Motifs laid out in half-drop rows: every other column is shifted down by half a row.
+const halfDrop: Partial<Record<Motif, Spec>> = {
+  elibelinde: { a: elibelindeA, b: elibelindeB, w: 27, h: 29, pad: [14, 10], scale: 2 },
+  pitrak: { a: pitrakA, b: pitrakB, w: 21, h: 21, pad: [9, 9], scale: 3 },
+};
 
 function Tile({ motif, id }: { motif: Motif; id: string }) {
+  const hd = halfDrop[motif];
+  if (hd) {
+    const W = hd.w + hd.pad[0];
+    const H = hd.h + hd.pad[1];
+    const m = (x: number, y: number) => (
+      <g transform={`translate(${x},${y})`}>
+        <path fill="#8E2A22" d={hd.a} />
+        <path fill="#1A1612" d={hd.b} />
+      </g>
+    );
+    const px = hd.pad[0] / 2;
+    const py = hd.pad[1] / 2;
+    return (
+      <pattern id={id} width={W * 2} height={H} patternUnits="userSpaceOnUse" patternTransform={`scale(${hd.scale})`}>
+        {m(px, py)}
+        {m(W + px, py - H / 2)}
+        {m(W + px, py + H / 2)}
+      </pattern>
+    );
+  }
   if (motif === "lozenge")
     return (
       <pattern id={id} width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="scale(6)">
@@ -20,7 +48,7 @@ function Tile({ motif, id }: { motif: Motif; id: string }) {
       </g>
     );
     return (
-      <pattern id={id} width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="scale(4)">
+      <pattern id={id} width="36" height="36" patternUnits="userSpaceOnUse" patternTransform={`scale(${STAR_SCALE})`}>
         {s(2, 2)}
         {s(20, 20)}
         <path fill="#8E2A22" d="M18 9h1v1h-1zM0 27h1v1h-1z" />
@@ -41,11 +69,15 @@ function Tile({ motif, id }: { motif: Motif; id: string }) {
   );
 }
 
+const STAR_SCALE = 3; // the rug star, drawn smaller than before (was 4)
+
 // Size of one repeat on screen, in px.
 const tileSize: Record<Motif, { w: number; h: number }> = {
   lozenge: { w: 16 * 6, h: 16 * 6 },
-  star: { w: 36 * 4, h: 36 * 4 },
+  star: { w: 36 * STAR_SCALE, h: 36 * STAR_SCALE },
   ram: { w: 48 * 3, h: 52 * 3 },
+  elibelinde: { w: (27 + 14) * 2 * 2, h: (29 + 10) * 2 },
+  pitrak: { w: (21 + 9) * 2 * 3, h: (21 + 9) * 3 },
 };
 
 /**

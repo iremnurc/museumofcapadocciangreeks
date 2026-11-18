@@ -41,7 +41,7 @@ export default function EventsPage() {
 
       <PatternFeature
         id="festival"
-        motif="ram"
+        motif="star"
         image={images.festival}
         position="30% 60%"
         label="Every summer · Akontisma"

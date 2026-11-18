@@ -86,10 +86,12 @@ export function PatternFeature({
 }) {
   return (
     <section id={id} className="relative overflow-hidden bg-paper">
-      <PatternField motif={motif} className="absolute top-0 left-0 h-[40%] w-full sm:h-full sm:w-[56%]" />
-      <div className="gutter relative flex flex-wrap items-end gap-x-12 gap-y-10 py-[clamp(80px,10vw,140px)]">
-        <div aria-hidden className="hidden min-w-0 flex-1 lg:block" />
-        <div data-queued-reveal-item className="relative aspect-[4/5] w-full min-w-0 flex-[0_1_480px]">
+      {/* the pattern runs from the left edge to the centre of the section */}
+      <PatternField motif={motif} className="absolute top-0 left-0 h-[40%] w-full sm:h-full sm:w-1/2" />
+      {/* three columns on large screens: empty | photo, centred in the section | text */}
+      <div className="gutter relative flex flex-col gap-10 py-[clamp(80px,10vw,140px)] lg:grid lg:grid-cols-[1fr_minmax(0,480px)_1fr] lg:items-end lg:gap-12">
+        <div aria-hidden className="hidden lg:block" />
+        <div data-queued-reveal-item className="relative aspect-[4/5] w-full max-w-[480px] min-w-0">
           <Image
             src={image.src}
             alt={image.alt}
@@ -99,7 +101,7 @@ export function PatternFeature({
             style={{ objectPosition: position }}
           />
         </div>
-        <div data-queued-reveal-children className="flex min-w-[280px] flex-1 flex-col gap-4 py-2">
+        <div data-queued-reveal-children className="flex min-w-0 flex-col gap-4 py-2">
           <span className="label">{label}</span>
           <h2 data-heading-reveal className="h2 m-0">{title}</h2>
           <p className="body-serif m-0">{text}</p>

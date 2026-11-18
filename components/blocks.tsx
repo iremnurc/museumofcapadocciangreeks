@@ -41,7 +41,7 @@ export function PageHero({
           <p className="m-0 min-w-0 max-w-[560px] flex-[1_1_360px] font-serif text-[clamp(20px,1.7vw,24px)] leading-normal text-sand">
             {intro}
           </p>
-          <div className="arch relative aspect-[16/7] min-w-0 flex-[2_1_520px]">
+          <div className="arch relative aspect-[2/1] min-w-0 flex-[2_1_520px]">
             <Image
               src={image.src}
               alt={image.alt}

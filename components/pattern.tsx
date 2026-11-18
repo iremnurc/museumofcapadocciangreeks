@@ -10,7 +10,7 @@ type Spec = { a: string; b: string; w: number; h: number; pad: [number, number];
 // Motifs laid out in half-drop rows: every other column is shifted down by half a row.
 const halfDrop: Partial<Record<Motif, Spec>> = {
   elibelinde: { a: elibelindeA, b: elibelindeB, w: 27, h: 29, pad: [14, 10], scale: 2 },
-  pitrak: { a: pitrakA, b: pitrakB, w: 21, h: 21, pad: [9, 9], scale: 3 },
+  pitrak: { a: pitrakA, b: pitrakB, w: 23, h: 23, pad: [9, 9], scale: 3 },
   // yıldız (kilim star), traced from the reference sheet
   star: { a: kilimStarA, b: kilimStarB, w: 21, h: 17, pad: [11, 9], scale: 3 },
 };
@@ -62,7 +62,7 @@ const tileSize: Record<Motif, { w: number; h: number }> = {
   star: { w: (21 + 11) * 2 * 3, h: (17 + 9) * 3 },
   ram: { w: 48 * 3, h: 52 * 3 },
   elibelinde: { w: (27 + 14) * 2 * 2, h: (29 + 10) * 2 },
-  pitrak: { w: (21 + 9) * 2 * 3, h: (21 + 9) * 3 },
+  pitrak: { w: (23 + 9) * 2 * 3, h: (23 + 9) * 3 },
 };
 
 /**

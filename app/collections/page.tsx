@@ -25,7 +25,7 @@ export default function CollectionsPage() {
       />
 
       <nav aria-label="Collections" className="border-b border-rule">
-        <div className="gutter flex flex-wrap gap-x-[clamp(32px,6vw,96px)] gap-y-2.5 py-[18px] text-sm">
+        <div data-queued-reveal-children className="gutter flex flex-wrap gap-x-[clamp(32px,6vw,96px)] gap-y-2.5 py-[18px] text-sm">
           <a href="#costumes"><span className="text-madder">01</span>&nbsp; Costumes &amp; jewellery</a>
           <a href="#church"><span className="text-madder">02</span>&nbsp; Treasures from the churches</a>
           <a href="#rugs"><span className="text-madder">03</span>&nbsp; Rugs, kilims &amp; ceramics</a>
@@ -34,7 +34,7 @@ export default function CollectionsPage() {
 
       <section id="costumes" aria-label="Costumes and jewellery" className="scroll-mt-4 overflow-hidden">
         <div className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-center gap-x-20 gap-y-14 py-[clamp(96px,11vw,168px)]">
-          <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-6">
+          <div data-queued-reveal-children className="flex min-w-0 flex-[1_1_520px] flex-col gap-6">
             <span className="label">01 · Costumes &amp; jewellery</span>
             <h2 className="h2 m-0 max-w-[544px]">
               Garments of the <Accent>Greeks of the East</Accent>
@@ -46,7 +46,7 @@ export default function CollectionsPage() {
               In 1850 the community of Gelveri allowed women to wear their jewellery in public only at baptisms and weddings.
             </p>
           </div>
-          <div className="relative mx-auto min-w-[280px] flex-[0_1_520px] pb-14 pl-14">
+          <div data-queued-reveal-item className="relative mx-auto min-w-[280px] flex-[0_1_520px] pb-14 pl-14">
             <div className="arch relative aspect-[4/5] bg-clay">
               <Image src={images.dress.src} alt={images.dress.alt} fill sizes="(min-width: 768px) 460px, 90vw" className="object-cover object-[50%_30%]" />
             </div>

@@ -18,7 +18,7 @@ export function SiteFooter() {
       </svg>
 
       <div className="mx-auto max-w-[1344px] px-4 pt-16 sm:px-12">
-        <div className="flex flex-wrap gap-x-14 gap-y-10">
+        <div data-queued-reveal-children className="flex flex-wrap gap-x-14 gap-y-10">
           <div className="flex min-w-0 flex-[1.4_1_260px] flex-col gap-2 leading-[1.6]">
             <span className="text-xs tracking-[0.16em] text-terracotta">VISIT</span>
             <span>

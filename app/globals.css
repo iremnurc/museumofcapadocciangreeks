@@ -127,3 +127,7 @@
 @media (prefers-reduced-motion: reduce) {
   .menu-tile, .menu-tile[data-state="open"], .menu-link, .menu-x span { transition-duration: 0.01s !important; transition-delay: 0s !important; }
 }
+
+/* Queued scroll reveal: items start hidden; components/queued-reveal.tsx brings them in */
+.reveal-ready [data-queued-reveal-item],
+.reveal-ready [data-queued-reveal-children] > * { visibility: hidden; opacity: 0; }

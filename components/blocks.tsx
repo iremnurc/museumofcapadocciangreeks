@@ -30,7 +30,7 @@ export function PageHero({
 }) {
   return (
     <section aria-label="Introduction" className={cn("text-parchment", tone === "madder" ? "bg-madder" : "bg-ink")}>
-      <div className="gutter flex flex-col gap-[clamp(40px,5vw,72px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(56px,7vw,104px)]">
+      <div data-queued-reveal-children className="gutter flex flex-col gap-[clamp(40px,5vw,72px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(56px,7vw,104px)]">
         <div className={cn("flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px]", tone === "madder" ? "text-blush" : "text-mist")}>
           {info.map((i) => (
             <span key={i}>{i}</span>
@@ -89,7 +89,7 @@ export function PatternFeature({
       <PatternField motif={motif} className="absolute top-0 left-0 h-[40%] w-full sm:h-full sm:w-[56%]" />
       <div className="gutter relative flex flex-wrap items-end gap-x-12 gap-y-10 py-[clamp(80px,10vw,140px)]">
         <div aria-hidden className="hidden min-w-0 flex-1 lg:block" />
-        <div className="relative aspect-[4/5] w-full min-w-0 flex-[0_1_480px]">
+        <div data-queued-reveal-item className="relative aspect-[4/5] w-full min-w-0 flex-[0_1_480px]">
           <Image
             src={image.src}
             alt={image.alt}
@@ -99,7 +99,7 @@ export function PatternFeature({
             style={{ objectPosition: position }}
           />
         </div>
-        <div className="flex min-w-[280px] flex-1 flex-col gap-4 py-2">
+        <div data-queued-reveal-children className="flex min-w-[280px] flex-1 flex-col gap-4 py-2">
           <span className="label">{label}</span>
           <h2 className="h2 m-0">{title}</h2>
           <p className="body-serif m-0">{text}</p>
@@ -144,7 +144,7 @@ export function EditorialBlock({
             {statement}
           </GradientWaveText>
         </div>
-        <div className="indent-editorial">{children}</div>
+        <div data-queued-reveal-item className="indent-editorial">{children}</div>
       </div>
     </section>
   );
@@ -208,7 +208,7 @@ export function VisitCta({
       <div className="arch absolute top-[clamp(48px,6vw,96px)] right-[clamp(-120px,-4vw,-40px)] hidden aspect-[3/4] w-[clamp(160px,18vw,260px)] sm:block">
         <Image src={right.src} alt="" fill sizes="260px" className="object-cover" />
       </div>
-      <div className="relative mx-auto flex max-w-[760px] flex-col items-center gap-6 px-[clamp(24px,5vw,48px)] py-[clamp(112px,12vw,176px)] text-center">
+      <div data-queued-reveal-children className="relative mx-auto flex max-w-[760px] flex-col items-center gap-6 px-[clamp(24px,5vw,48px)] py-[clamp(112px,12vw,176px)] text-center">
         <span className="label">{label}</span>
         <h2 className="h2 m-0">{title}</h2>
         <p className="m-0 max-w-[560px] font-serif text-[21px] leading-[1.55] text-body">{text}</p>

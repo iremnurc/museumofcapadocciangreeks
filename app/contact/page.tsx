@@ -24,7 +24,7 @@ export default function ContactPage() {
       />
 
       <section aria-label="People">
-        <div className="gutter flex flex-col gap-7 pt-[clamp(64px,8vw,112px)]">
+        <div data-queued-reveal-children className="gutter flex flex-col gap-7 pt-[clamp(64px,8vw,112px)]">
           <span className="label">Who to write to</span>
           {site.contacts.map((c) => (
             <div key={c.email} className="flex flex-wrap items-center gap-x-10 gap-y-3 border border-rule px-7 py-[26px]">
@@ -38,7 +38,7 @@ export default function ContactPage() {
       </section>
 
       <section aria-label="Send a message">
-        <div className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-start gap-x-20 gap-y-14 py-[clamp(96px,11vw,160px)]">
+        <div data-queued-reveal-children className="gutter-wide mx-auto flex max-w-[1360px] flex-wrap items-start gap-x-20 gap-y-14 py-[clamp(96px,11vw,160px)]">
           <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-5">
             <span className="label">Write to us</span>
             <h2 className="h2 m-0">

@@ -15,7 +15,7 @@ export default function HomePage() {
       <HomeHero />
 
       <section aria-label="Today" className="border-b border-rule">
-        <div className="gutter flex flex-wrap justify-between gap-x-8 gap-y-2.5 py-[18px] text-sm">
+        <div data-queued-reveal-children className="gutter flex flex-wrap justify-between gap-x-8 gap-y-2.5 py-[18px] text-sm">
           <span>
             Mon–Sat {winter.time} <span className="text-stone">{winter.short}</span> · {summer.time}{" "}
             <span className="text-stone">{summer.short}</span>
@@ -43,7 +43,7 @@ export default function HomePage() {
       />
 
       <section aria-label="Events">
-        <div className="gutter flex flex-col gap-7 py-[clamp(64px,8vw,112px)]">
+        <div data-queued-reveal-children className="gutter flex flex-col gap-7 py-[clamp(64px,8vw,112px)]">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="m-0 font-serif text-[clamp(48px,6vw,88px)] font-normal italic leading-[0.95] text-madder">what&apos;s on</h2>
             <Link href="/events" className="pill">
@@ -71,7 +71,7 @@ export default function HomePage() {
               <span className="italic text-terracotta">and began to collect the relics of the past.</span>
             </GradientWaveText>
           </div>
-          <div className="indent-editorial flex flex-wrap gap-12 border-t border-rule-madder pt-12">
+          <div data-queued-reveal-children className="indent-editorial flex flex-wrap gap-12 border-t border-rule-madder pt-12">
             <p className="m-0 min-w-0 flex-[1_1_280px] font-serif text-[21px] leading-[1.6]">
               Documents, books, photographs, costumes, pictures, icons and objects of everyday life, gathered by the families who carried them from Cappadocia.
             </p>

@@ -24,7 +24,7 @@ export function SeasonHours() {
           ))}
         </div>
       </div>
-      <div className="flex flex-wrap border-t border-rule-dark">
+      <div data-queued-reveal-children className="flex flex-wrap border-t border-rule-dark">
         <div className="flex min-w-0 flex-[1_1_280px] flex-col gap-3 pt-8 pr-8 pb-2">
           <span className="text-xs tracking-[0.2em] text-terracotta">HOURS</span>
           <span className="font-serif text-[56px] leading-none text-parchment" aria-live="polite">{s.time}</span>

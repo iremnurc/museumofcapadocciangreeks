@@ -18,7 +18,7 @@ The approved design lives on the canvas (Site pages: Home, Collections, Events, 
 | Archive photos | black and white: `grayscale(1) contrast(1.12) sepia(0.12)` |
 | Gutters | `clamp(16px, 3vw, 40px)` for full-bleed sections; content max 1360px for editorial sections |
 | Section rhythm | generous: 96–200px vertical padding on desktop |
-| Motion | hero marquee (70 s loop, pauses on hover) and the Home quote's gradient wave text on scroll (letters go faint ink → knot red → ink); both off with reduced motion |
+| Motion | queued scroll reveal on headings, rows, columns and photos (fade + rise, one after another from a shared queue) · hero marquee (70 s loop, pauses on hover) and the Home quote's gradient wave text on scroll (letters go faint ink → knot red → ink); both off with reduced motion |
 
 ## Shared components
 

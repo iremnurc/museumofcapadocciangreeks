@@ -32,7 +32,7 @@ export default function EventsPage() {
       />
 
       <section aria-label="Programme">
-        <div className="gutter flex flex-col gap-7 py-[clamp(64px,8vw,112px)]">
+        <div data-queued-reveal-children className="gutter flex flex-col gap-7 py-[clamp(64px,8vw,112px)]">
           <span className="label">The programme</span>
           <OutlinedRow href="#festival" kicker="Every summer" title="The Great Festival at Akontisma" text="Performances, concerts and theatre that celebrate artistic expression." />
           <OutlinedRow href="#symposiums" kicker="Throughout the year" title="Symposiums & book presentations" text="On the history, traditions and identity of the Greeks of Cappadocia." />

@@ -8,7 +8,7 @@ const frames = { arch: "rounded-t-full", rect: "", pill: "rounded-full" } as con
 export function HomeHero() {
   return (
     <section data-hero aria-label="Welcome" className="bg-ink text-parchment">
-      <div className="gutter flex flex-col gap-[clamp(40px,5vw,80px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(72px,8vw,128px)]">
+      <div data-queued-reveal-children className="gutter flex flex-col gap-[clamp(40px,5vw,80px)] pt-[clamp(20px,2.5vw,32px)] pb-[clamp(72px,8vw,128px)]">
         <div data-hero-fade className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-[13px] text-mist">
           {home.info.map((i) => (
             <span key={i}>{i}</span>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Commissioner, EB_Garamond } from "next/font/google";
+import { QueuedReveal } from "@/components/queued-reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
@@ -30,7 +31,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${garamond.variable} ${commissioner.variable}`}>
+    <html lang="en" className={`${garamond.variable} ${commissioner.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Hide scroll-reveal items from the first paint (only when scripts run and motion is allowed). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("reveal-ready")`,
+          }}
+        />
+      </head>
       <body>
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-paper focus:px-4 focus:py-2">
           Skip to content
@@ -38,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <QueuedReveal />
       </body>
     </html>
   );
